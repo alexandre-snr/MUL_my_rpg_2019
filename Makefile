@@ -1,0 +1,59 @@
+##
+## EPITECH PROJECT, 2020
+## MUL_my_rpg_2019
+## File description:
+## Makefile
+##
+
+CFLAGS 	=	-Iengine/include -Igame/include -Wall
+LDFLAGS	+=	-lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm
+
+EXEC 	=	my_rpg
+
+SRC		=	engine/core/engine.c							\
+			engine/core/event_management.c					\
+			engine/core/pevent_keyboard.c					\
+			engine/core/pevent_mouse.c						\
+			engine/entities/entity.c						\
+			engine/entities/entity_node.c					\
+			engine/scenes/scene.c							\
+			engine/scenes/scene_add_entity.c				\
+			engine/scenes/scene_get_entity.c				\
+			engine/scenes/scene_remove_entity.c				\
+			engine/scenes/scene_manager.c					\
+			engine/utils/delta_time.c						\
+			engine/utils/output.c							\
+			engine/utils/random.c							\
+			engine/utils/string_convert.c					\
+			engine/utils/string_utils.c						\
+			engine/utils/string_utils2.c					\
+			engine/utils/vector_helper.c					\
+			engine/utils/rect_helper.c						\
+			engine/ui/label.c								\
+			engine/ui/label_helper.c						\
+			engine/ui/panel.c								\
+			engine/ui/button.c								\
+			engine/ini/loader.c								\
+			engine/ini/set.c								\
+			engine/ini/free.c								\
+			engine/ini/get.c								\
+			engine/ini/save.c								\
+			game/main.c
+
+OBJ		=	$(SRC:.c=.o)
+
+all:		$(EXEC)
+
+$(EXEC):	$(OBJ)
+	gcc -o $(EXEC) $(OBJ) $(LDFLAGS)
+
+clean:
+	rm -f $(OBJ)
+
+fclean:		clean
+	rm -f $(EXEC)
+
+re:			fclean all
+
+cdb:
+	compiledb make re

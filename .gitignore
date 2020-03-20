@@ -1,0 +1,6 @@
+*.o
+/my_rpg
+compile_commands.json
+*.swp
+/.clangd
+/.vscode
