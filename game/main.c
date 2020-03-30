@@ -8,12 +8,17 @@
 #include "engine.h"
 #include "scene_manager.h"
 #include "scenes.h"
+#include "ini.h"
+#include "string_convert.h"
 
 int main(int ac, char **av)
 {
-    sfVector2i size = {1280, 766};
+    sfVector2i size;
     engine_t *engine;
+    ini_t *ini = snr_ini_load("game/assets/configs/screensize.ini");
 
+    size.x = stoi(*snr_ini_get(ini, "size", "x"));
+    size.y = stoi(*snr_ini_get(ini, "size", "y"));
     engine = snr_engine_create("My RPG !", size);
     snr_engine_run(engine);
     snr_engine_destroy(engine);
