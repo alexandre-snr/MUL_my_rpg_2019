@@ -9,3 +9,6 @@
 
 #include "entity.h"
 #include "entities_data.h"
+
+entity_t *create_entity_video(void);
+entity_t *create_entity_sound(void);

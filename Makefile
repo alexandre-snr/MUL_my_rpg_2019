@@ -38,7 +38,10 @@ SRC		=	engine/core/engine.c							\
 			engine/ini/free.c								\
 			engine/ini/get.c								\
 			engine/ini/save.c								\
-			game/main.c
+			game/main.c										\
+			game/entities/splashscreen/sound.c				\
+			game/entities/splashscreen/video.c				\
+			game/scenes/splashscreen.c
 
 OBJ		=	$(SRC:.c=.o)
 

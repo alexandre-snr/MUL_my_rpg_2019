@@ -20,6 +20,7 @@ int main(int ac, char **av)
     size.x = stoi(*snr_ini_get(ini, "size", "x"));
     size.y = stoi(*snr_ini_get(ini, "size", "y"));
     engine = snr_engine_create("My RPG !", size);
+    snr_scene_manager_load(engine, create_scene_splashscreen());
     snr_engine_run(engine);
     snr_engine_destroy(engine);
     return (0);

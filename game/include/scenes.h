@@ -9,3 +9,5 @@
 
 #include "scene.h"
 #include "engine.h"
+
+scene_t *create_scene_splashscreen(void);
