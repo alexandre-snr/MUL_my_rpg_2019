@@ -12,3 +12,4 @@
 
 entity_t *create_entity_video(void);
 entity_t *create_entity_sound(void);
+entity_t *create_icon(char const *path, sfFloatRect *rect);

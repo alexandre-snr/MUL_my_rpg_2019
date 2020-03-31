@@ -5,6 +5,7 @@
 ** main
 */
 
+#include <stdlib.h>
 #include "engine.h"
 #include "scene_manager.h"
 #include "scenes.h"

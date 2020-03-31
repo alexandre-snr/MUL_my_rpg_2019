@@ -30,3 +30,10 @@ scene_t *create_scene_resolution(engine_t *engine);
 void on_1280_click(engine_t *engine);
 void on_1920_click(engine_t *engine);
 void on_fullscreen_click(engine_t *engine);
+
+//volume
+scene_t *create_scene_volume(engine_t *engine);
+void down_volume(engine_t *engine);
+void up_volume(engine_t *engine);
+void down_music_volume(engine_t *engine);
+void up_music_volume(engine_t *engine);

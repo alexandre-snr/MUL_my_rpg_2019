@@ -15,7 +15,7 @@ void on_resolution_click(engine_t *engine)
 
 void on_volume_click(engine_t *engine)
 {
-
+    snr_scene_manager_load(engine, create_scene_volume(engine));
 }
 
 void on_main_menu_click(engine_t *engine)

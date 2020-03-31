@@ -22,3 +22,15 @@ typedef struct
     sfSoundBuffer *buffer;
     sfSound *sound;
 } entity_sound_data_t;
+
+typedef struct
+{
+    sfTexture *texture;
+    sfSprite *sprite;
+} entity_icon_data_t;
+
+typedef struct
+{
+    char const *path;
+    sfFloatRect rect;
+} entity_icon_props_t;

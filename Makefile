@@ -41,13 +41,16 @@ SRC		=	engine/core/engine.c									\
 			game/main.c												\
 			game/entities/splashscreen/sound.c						\
 			game/entities/splashscreen/video.c						\
+			game/entities/game/icon.c								\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\
 			game/scenes/option/option_callback.c					\
 			game/scenes/option/option.c								\
 			game/scenes/option/resolution/resolution.c				\
-			game/scenes/option/resolution/resolution_callback.c
+			game/scenes/option/resolution/resolution_callback.c		\
+			game/scenes/option/volume/volume.c						\
+			game/scenes/option/volume/volume_callback.c
 
 OBJ		=	$(SRC:.c=.o)
 
