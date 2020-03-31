@@ -23,5 +23,6 @@ int main(int ac, char **av)
     snr_scene_manager_load(engine, create_scene_splashscreen());
     snr_engine_run(engine);
     snr_engine_destroy(engine);
+    free(ini);
     return (0);
 }
