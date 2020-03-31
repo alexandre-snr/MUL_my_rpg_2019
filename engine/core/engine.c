@@ -9,14 +9,15 @@
 #include "random.h"
 #include <stdlib.h>
 
-engine_t *snr_engine_create(char const *title, sfVector2i size)
+engine_t *snr_engine_create(char const *title, sfVector2i size,
+sfWindowStyle style)
 {
     engine_t *engine = malloc(sizeof(engine_t));
     sfVideoMode videoMode = {size.x, size.y, 32};
 
     if (engine == NULL)
         return (NULL);
-    engine->win = sfRenderWindow_create(videoMode, title, sfClose, NULL);
+    engine->win = create_win(style, videoMode, title);
     if (engine->win == NULL) {
         snr_engine_destroy(engine);
         return (NULL);

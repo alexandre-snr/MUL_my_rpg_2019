@@ -14,6 +14,7 @@ SRC		=	engine/core/engine.c									\
 			engine/core/event_management.c							\
 			engine/core/pevent_keyboard.c							\
 			engine/core/pevent_mouse.c								\
+			engine/core/create_win.c								\
 			engine/entities/entity.c								\
 			engine/entities/entity_node.c							\
 			engine/scenes/scene.c									\

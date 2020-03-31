@@ -17,10 +17,11 @@ int main(int ac, char **av)
     sfVector2i size;
     engine_t *engine;
     ini_t *ini = snr_ini_load("game/assets/configs/screensize.ini");
+    sfWindowStyle style = stoi(*snr_ini_get(ini, "videomode", "mode"));
 
     size.x = stoi(*snr_ini_get(ini, "size", "x"));
     size.y = stoi(*snr_ini_get(ini, "size", "y"));
-    engine = snr_engine_create("My RPG !", size);
+    engine = snr_engine_create("My RPG !", size, style);
     snr_scene_manager_load(engine, create_scene_splashscreen());
     snr_engine_run(engine);
     snr_engine_destroy(engine);
