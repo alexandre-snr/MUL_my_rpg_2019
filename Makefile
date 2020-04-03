@@ -55,7 +55,8 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/icon.c								\
 			game/entities/game/background.c							\
 			game/entities/game/player.c								\
-			game/entities/game/player_movement.c
+			game/entities/game/player_movement.c					\
+			game/entities/game/camera.c
 
 OBJ		=	$(SRC:.c=.o)
 
