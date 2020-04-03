@@ -53,7 +53,6 @@ typedef struct
     sfSprite *sprite;
     sfIntRect rect;
     sfVector2f pos;
-    int direction;
 } entity_player_data_t;
 
 typedef struct
