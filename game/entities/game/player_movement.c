@@ -28,6 +28,7 @@ void player_movement(entity_t *self, engine_t *engine)
     DATA(player);
     sfVector2f input = {0, 0};
     float input_len = 0;
+    sfFloatRect rect = {0, 0, data->rect.width, data->rect.height / 2};
 
     input.x += sfKeyboard_isKeyPressed(sfKeyQ) ? -1 : 0;
     input.x += sfKeyboard_isKeyPressed(sfKeyD) ? 1 : 0;
@@ -40,8 +41,13 @@ void player_movement(entity_t *self, engine_t *engine)
     }
     data->pos.x += input.x * 200 * engine->dt->val;
     data->pos.y += input.y * 200 * engine->dt->val;
+    rect.left = data->pos.x;
+    rect.top = data->pos.y + data->rect.height / 2;
+    if (check_colliders(engine, &rect)) {
+        data->pos.x -= input.x * 200 * engine->dt->val;
+        data->pos.y -= input.y * 200 * engine->dt->val;
+    }
     animation(data, &input, engine);
     sfSprite_setTextureRect(data->sprite, data->rect);
     sfSprite_setPosition(data->sprite, data->pos);
-
 }

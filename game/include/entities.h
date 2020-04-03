@@ -17,3 +17,7 @@ entity_t *create_background(char const *path);
 entity_t *create_player(const char *path);
 void player_movement(entity_t *self, engine_t *engine);
 entity_t *create_camera(void);
+entity_t *create_colliders(void);
+void add_collider(engine_t *engine, sfFloatRect *rect);
+int check_colliders(engine_t *engine, sfFloatRect *rect);
+entity_t *create_obstacle(char const *path, sfVector2f *pos, sfFloatRect *coll);
