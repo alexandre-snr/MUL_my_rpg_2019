@@ -37,3 +37,6 @@ void down_volume(engine_t *engine);
 void up_volume(engine_t *engine);
 void down_music_volume(engine_t *engine);
 void up_music_volume(engine_t *engine);
+
+//spawn map
+scene_t *create_spawn_map(engine_t *engine);
