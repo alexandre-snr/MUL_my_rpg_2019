@@ -23,7 +23,8 @@ static void animation(entity_player_data_t *data, sfVector2f *in, engine_t *en)
     if (snr_get_len(in) == 0)
         data->rect.left = 0;
     else
-        data->rect.left = ((int) (en->dt->since_start * 10) % 4) * data->rect.width;
+        data->rect.left = ((int) (en->dt->since_start * 10) % 4)
+        * data->rect.width;
 }
 
 void player_movement(entity_t *self, engine_t *engine)
