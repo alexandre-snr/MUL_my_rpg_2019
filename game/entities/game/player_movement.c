@@ -12,14 +12,10 @@
 
 static void animation(entity_player_data_t *data, sfVector2f *in, engine_t *en)
 {
-    if (in->y < 0)
-        data->rect.top = data->rect.height * 3;
-    if (in->y > 0)
-        data->rect.top = data->rect.height * 0;
-    if (in->x < 0)
-        data->rect.top = data->rect.height * 2;
-    if (in->x > 0)
-        data->rect.top = data->rect.height * 1;
+    data->rect.top = in->y < 0 ? data->rect.height * 3 : data->rect.top;
+    data->rect.top = in->y > 0 ? data->rect.height * 0 : data->rect.top;
+    data->rect.top = in->x < 0 ? data->rect.height * 2 : data->rect.top;
+    data->rect.top = in->x > 0 ? data->rect.height * 1 : data->rect.top;
     if (snr_get_len(in) == 0)
         data->rect.left = 0;
     else
