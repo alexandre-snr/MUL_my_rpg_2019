@@ -6,12 +6,11 @@
 */
 
 #include "engine.h"
-#include "scene_manager.h"
 #include "scenes.h"
 
 void on_play_click(engine_t *engine)
 {
-    snr_scene_manager_load(engine, create_spawn_map(engine));
+    snr_scene_manager_load(engine, create_scene_loadgame(engine));
 }
 
 void on_how_to_click(engine_t *engine)

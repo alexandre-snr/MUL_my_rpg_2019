@@ -40,6 +40,9 @@ SRC		=	engine/core/engine.c									\
 			engine/ini/get.c										\
 			engine/ini/save.c										\
 			game/main.c												\
+			game/entities/splashscreen/sound.c						\
+			game/entities/splashscreen/video.c						\
+			game/entities/game/icon.c								\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\
@@ -49,16 +52,8 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/option/resolution/resolution_callback.c		\
 			game/scenes/option/volume/volume.c						\
 			game/scenes/option/volume/volume_callback.c				\
-			game/scenes/spawn_map/spawn_map.c						\
-			game/entities/splashscreen/sound.c						\
-			game/entities/splashscreen/video.c						\
-			game/entities/game/icon.c								\
-			game/entities/game/background.c							\
-			game/entities/game/player.c								\
-			game/entities/game/player_movement.c					\
-			game/entities/game/camera.c								\
-			game/entities/game/colliders.c							\
-			game/entities/game/obstacle.c
+			game/scenes/loadgame/loadgame.c							\
+			game/scenes/loadgame/loadgame_callback.c
 
 OBJ		=	$(SRC:.c=.o)
 
