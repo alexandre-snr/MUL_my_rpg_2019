@@ -1,4 +1,5 @@
 *.o
+vgcore.*
 /my_rpg
 compile_commands.json
 *.swp
