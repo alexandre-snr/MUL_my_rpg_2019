@@ -25,13 +25,13 @@ char *my_strcat(char *dest, char *src)
 {
     int i;
     int j;
-    char *new = malloc(sizeof(char) * my_strlen(dest) + my_strlen(src));
+    char *new = malloc(sizeof(char) * my_strlen(dest) + my_strlen(src) + 1);
 
     j = 0;
     i = my_strlen(dest);
     new = my_strcpy(new, dest);
     while (src[j] != '\0')
-        dest[i++] = src[j++];
-    dest[i] = '\0';
+        new[i++] = src[j++];
+    new[i] = '\0';
     return (new);
 }

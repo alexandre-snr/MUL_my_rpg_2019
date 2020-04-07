@@ -34,3 +34,46 @@ typedef struct
     char const *path;
     sfFloatRect rect;
 } entity_icon_props_t;
+
+typedef struct
+{
+    sfTexture *texture;
+    sfSprite *sprite;
+} entity_background_data_t;
+
+typedef struct
+{
+    char const *path;
+} entity_background_props_t;
+
+typedef struct
+{
+    sfTexture *texture;
+    sfSprite *sprite;
+    sfIntRect rect;
+    sfVector2f pos;
+} entity_player_data_t;
+
+typedef struct
+{
+    char const *path;
+} entity_player_props_t;
+
+typedef struct
+{
+    sfFloatRect *colliders;
+    int count;
+} entity_colliders_data_t;
+
+typedef struct
+{
+    sfTexture *texture;
+    sfSprite *sprite;
+} entity_obstacle_data_t;
+
+typedef struct
+{
+    char const *path;
+    sfVector2f pos;
+    sfFloatRect coll;
+} entity_obstacle_props_t;

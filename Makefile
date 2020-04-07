@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-CFLAGS 	=	-Iengine/include -Igame/include -Wall
+CFLAGS 	=	-g -Iengine/include -Igame/include -Wall
 LDFLAGS	+=	-lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm
 
 EXEC 	=	my_rpg
@@ -43,6 +43,12 @@ SRC		=	engine/core/engine.c									\
 			game/entities/splashscreen/sound.c						\
 			game/entities/splashscreen/video.c						\
 			game/entities/game/icon.c								\
+			game/entities/game/background.c							\
+			game/entities/game/camera.c								\
+			game/entities/game/colliders.c							\
+			game/entities/game/obstacle.c							\
+			game/entities/game/player_movement.c					\
+			game/entities/game/player.c								\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\
@@ -53,7 +59,8 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/option/volume/volume.c						\
 			game/scenes/option/volume/volume_callback.c				\
 			game/scenes/loadgame/loadgame.c							\
-			game/scenes/loadgame/loadgame_callback.c
+			game/scenes/loadgame/loadgame_callback.c				\
+			game/scenes/spawn_map/spawn_map.c
 
 OBJ		=	$(SRC:.c=.o)
 
