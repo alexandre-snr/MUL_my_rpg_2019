@@ -21,9 +21,10 @@ static void init(entity_t *self, engine_t *engine)
 {
     IDATA(player);
     PR(player);
+    map_change_t *map_change = engine->sm->scene->props;
 
     data->texture = sfTexture_createFromFile(props->path, NULL);
-    data->pos = snr_create_vector2f(30, 30);
+    data->pos = map_change->player_pos;
     data->sprite = sfSprite_create();
     data->rect = snr_create_intrect(0, 0, 32, 48);
     sfSprite_setTexture(data->sprite, data->texture, sfFalse);

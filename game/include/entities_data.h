@@ -7,7 +7,9 @@
 
 #pragma once
 
+#include "map_change.h"
 #include <SFML/Audio/SoundBuffer.h>
+#include <SFML/Graphics.h>
 
 typedef struct
 {
@@ -77,3 +79,10 @@ typedef struct
     sfVector2f pos;
     sfFloatRect coll;
 } entity_obstacle_props_t;
+
+typedef struct
+{
+    sfFloatRect coll;
+    maps_e map;
+    sfVector2f player_pos;
+} entity_warp_props_t;

@@ -9,7 +9,9 @@
 
 #include "scene.h"
 #include "engine.h"
+#include "map_change.h"
 
+//splashscreen
 scene_t *create_scene_splashscreen(void);
 
 //main_menu
@@ -45,4 +47,4 @@ void on_slot2_click(engine_t *engine);
 void on_slot3_click(engine_t *engine);
 
 //spawn_map
-scene_t *create_spawn_map(engine_t *engine);
+scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change);
