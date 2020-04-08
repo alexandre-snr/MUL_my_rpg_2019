@@ -28,12 +28,21 @@ static void init(entity_t *self, engine_t *engine)
     data->sprite = sfSprite_create();
     data->rect = snr_create_intrect(0, 0, 32, 48);
     sfSprite_setTexture(data->sprite, data->texture, sfFalse);
+    data->inv = map_change->inv;
     self->data = data;
 }
 
 static void update(entity_t *self, engine_t *engine)
 {
+    DATA(player);
+
     player_movement(self, engine);
+    if (sfKeyboard_isKeyPressed(sfKeyI)) {
+        printf("inv:\n-health potions: %d\n", data->inv.health_potions);
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyA)) {
+        data->inv.health_potions++;
+    }
 }
 
 static void draw(entity_t *self, engine_t *engine)

@@ -26,6 +26,7 @@ static void update(entity_t *self, engine_t *engine)
         map_change = malloc(sizeof(map_change_t));
         map_change->map = props->map;
         map_change->player_pos = props->player_pos;
+        map_change->inv = p_data->inv;
         load_map(engine, map_change);
     }
 }
