@@ -18,6 +18,10 @@ void open_menu(engine_t *engine, menu_entry_t **entries)
 
     close_menu(engine);
     m_data->entries = entries;
+    m_data->entries_count = 0;
+    for (m_data->entries_count = 0;
+    m_data->entries[m_data->entries_count]; m_data->entries_count++);
+    m_data->entry_selected = 0;
 }
 
 void close_menu(engine_t *engine)

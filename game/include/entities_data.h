@@ -97,8 +97,14 @@ typedef struct
 typedef struct
 {
     menu_entry_t **entries;
+    int entries_count;
+    int entry_selected;
+    int last_key_down;
+    int last_key_up;
     sfTexture *texture_panel;
     sfSprite *sprite_panel;
+    sfTexture *texture_selected;
+    sfSprite *sprite_selected;
     sfFont *font;
     sfText *text;
 } entity_menu_data_t;
