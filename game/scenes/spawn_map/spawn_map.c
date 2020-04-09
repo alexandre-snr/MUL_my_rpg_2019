@@ -8,10 +8,14 @@
 #include "map_change.h"
 #include "scene.h"
 #include "scenes.h"
+#include "ini.h"
 #include "entities.h"
+#include "string_utils.h"
+#include "string_convert.h"
 #include <SFML/Graphics.h>
 
-scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
+scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change ,
+int slot_number)
 {
     scene_t *scn = snr_scene_create("Spawn Map");
     sfVector2f pos = {100, 100};
@@ -31,6 +35,6 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
     create_obstacle("game/assets/sprites/obstacles/trunk.png", &pos, &coll),
     "Obstacle Test");
     snr_scene_add_entity(scn, NULL,
-    create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
+    create_warp(&warp_coll, SPAWN_MAP, &warp_pos, slot_number), "Warp test");
     return (scn);
 }

@@ -47,4 +47,5 @@ void on_slot2_click(engine_t *engine);
 void on_slot3_click(engine_t *engine);
 
 //spawn_map
-scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change);
+scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change ,
+int slot_number);

@@ -20,12 +20,19 @@ void on_slot1_click(engine_t *engine)
     int status = stoi(*(snr_ini_get(ini, "status", "stat")));
     map_change_t *map_change = malloc(sizeof(map_change_t));
 
-    map_change->map = SPAWN_MAP;
-    map_change->player_pos = snr_create_vector2f(20, 20);
     if (!status) {
         snr_ini_set(ini, "status", "stat", "1");
+        snr_ini_set(ini, "position", "x" , "20");
+        snr_ini_set(ini, "position", "y", "20");
+        snr_ini_set(ini, "position", "map", itos(SPAWN_MAP, 1));
+        map_change->map = SPAWN_MAP;
+        map_change->player_pos = snr_create_vector2f(20, 20);
+    } else {
+        map_change->player_pos.x = stoi(*snr_ini_get(ini, "position", "x"));
+        map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
+        map_change->map = stoi(*snr_ini_get(ini, "postion", "map"));
     }
-    load_map(engine, map_change);
+    load_map(engine, map_change, 1);
     snr_ini_save(ini);
     snr_ini_free(ini);
 }
@@ -36,12 +43,19 @@ void on_slot2_click(engine_t *engine)
     int status = stoi(*(snr_ini_get(ini, "status", "stat")));
     map_change_t *map_change = malloc(sizeof(map_change_t));
 
-    map_change->map = SPAWN_MAP;
-    map_change->player_pos = snr_create_vector2f(20, 20);
     if (!status) {
         snr_ini_set(ini, "status", "stat", "1");
+        snr_ini_set(ini, "position", "x" , "20");
+        snr_ini_set(ini, "position", "y", "20");
+        snr_ini_set(ini, "position", "map", itos(SPAWN_MAP, 0));
+        map_change->map = SPAWN_MAP;
+        map_change->player_pos = snr_create_vector2f(20, 20);
+    } else {
+        map_change->player_pos.x = stoi(*snr_ini_get(ini, "position", "x"));
+        map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
+        map_change->map = stoi(*snr_ini_get(ini, "postion", "map"));
     }
-    load_map(engine, map_change);
+    load_map(engine, map_change, 2);
     snr_ini_save(ini);
     snr_ini_free(ini);
 }
@@ -52,12 +66,19 @@ void on_slot3_click(engine_t *engine)
     int status = stoi(*(snr_ini_get(ini, "status", "stat")));
     map_change_t *map_change = malloc(sizeof(map_change_t));
 
-    map_change->map = SPAWN_MAP;
-    map_change->player_pos = snr_create_vector2f(20, 20);
     if (!status) {
         snr_ini_set(ini, "status", "stat", "1");
+        snr_ini_set(ini, "position", "x" , "20");
+        snr_ini_set(ini, "position", "y", "20");
+        snr_ini_set(ini, "position", "map", itos(SPAWN_MAP, 0));
+        map_change->map = SPAWN_MAP;
+        map_change->player_pos = snr_create_vector2f(20, 20);
+    } else {
+        map_change->player_pos.x = stoi(*snr_ini_get(ini, "position", "x"));
+        map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
+        map_change->map = stoi(*snr_ini_get(ini, "postion", "map"));
     }
-    load_map(engine, map_change);
+    load_map(engine, map_change, 3);
     snr_ini_save(ini);
     snr_ini_free(ini);
 }

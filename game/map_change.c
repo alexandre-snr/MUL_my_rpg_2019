@@ -9,14 +9,15 @@
 #include "scene_manager.h"
 #include "scenes.h"
 
-void load_map(engine_t *engine, map_change_t *map_change)
+void load_map(engine_t *engine, map_change_t *map_change, int slot_number)
 {
     maps_e triggers[] = {SPAWN_MAP, NONE_MAP};
-    scene_t *(*ctors[])(engine_t *, map_change_t *) = {create_spawn_map};
+    scene_t *(*ctors[])(engine_t *, map_change_t *, int) = {create_spawn_map};
 
     for (int i = 0; triggers[i] != NONE_MAP; i++)
         if (triggers[i] == map_change->map) {
-            snr_scene_manager_load(engine, ctors[i](engine, map_change));
+            snr_scene_manager_load(engine, ctors[i](engine, map_change,
+            slot_number));
             break;
         }
 }

@@ -22,4 +22,4 @@ typedef struct
     maps_e map;
 } map_change_t;
 
-void load_map(engine_t *engine, map_change_t *map_change);
+void load_map(engine_t *engine, map_change_t *map_change , int slot_number);
