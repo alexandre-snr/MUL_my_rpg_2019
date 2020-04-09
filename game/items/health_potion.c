@@ -9,6 +9,5 @@
 
 void health_potion_use(engine_t *engine)
 {
-    printf("Using health potion !\n");
     (*get_inventory_item(engine, HEALTH_POTION))--;
 }
