@@ -32,5 +32,6 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
     "Obstacle Test");
     snr_scene_add_entity(scn, NULL,
     create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
+    snr_scene_add_entity(scn, NULL, create_menu(), "Menu");
     return (scn);
 }

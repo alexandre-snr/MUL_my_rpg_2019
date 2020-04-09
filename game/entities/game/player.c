@@ -34,15 +34,7 @@ static void init(entity_t *self, engine_t *engine)
 
 static void update(entity_t *self, engine_t *engine)
 {
-    DATA(player);
-
     player_movement(self, engine);
-    if (sfKeyboard_isKeyPressed(sfKeyI)) {
-        printf("inv:\n-health potions: %d\n", data->inv.health_potions);
-    }
-    if (sfKeyboard_isKeyPressed(sfKeyA)) {
-        data->inv.health_potions++;
-    }
 }
 
 static void draw(entity_t *self, engine_t *engine)

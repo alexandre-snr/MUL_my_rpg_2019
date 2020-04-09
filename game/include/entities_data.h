@@ -88,3 +88,17 @@ typedef struct
     maps_e map;
     sfVector2f player_pos;
 } entity_warp_props_t;
+
+typedef struct
+{
+    char *text;
+} menu_entry_t;
+
+typedef struct
+{
+    menu_entry_t **entries;
+    sfTexture *texture_panel;
+    sfSprite *sprite_panel;
+    sfFont *font;
+    sfText *text;
+} entity_menu_data_t;

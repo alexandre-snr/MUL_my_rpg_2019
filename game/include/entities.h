@@ -22,3 +22,6 @@ void add_collider(engine_t *engine, sfFloatRect *rect);
 int check_colliders(engine_t *engine, sfFloatRect *rect);
 entity_t *create_obstacle(char const *path, sfVector2f *pos, sfFloatRect *coll);
 entity_t *create_warp(sfFloatRect *coll, maps_e map, sfVector2f *player_pos);
+entity_t *create_menu(void);
+void close_menu(engine_t *engine);
+void open_menu(engine_t *engine, menu_entry_t **entries);
