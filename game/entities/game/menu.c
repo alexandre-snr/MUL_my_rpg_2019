@@ -56,17 +56,21 @@ static void draw(entity_t *self, engine_t *engine)
 {
     DATA(menu);
     sfVector2u win_size = sfRenderWindow_getSize(engine->win);
+    int scroll = 0;
 
     if (data->entries == NULL)
         return;
+    if (data->entry_selected > 7)
+        scroll = data->entry_selected - 7;
     sfRenderWindow_drawSprite(engine->win, data->sprite_panel, NULL);
     sfSprite_setPosition(data->sprite_selected,
-    snr_create_vector2f(win_size.x - 385, 40 + 50 * data->entry_selected));
+    snr_create_vector2f(win_size.x - 385,
+    40 + 50 * (data->entry_selected - scroll)));
     sfRenderWindow_drawSprite(engine->win, data->sprite_selected, NULL);
-    for (int i = 0; data->entries[i] && i < 9; i++) {
+    for (int i = scroll; data->entries[i] && i < 9 + scroll; i++) {
         sfText_setString(data->text, data->entries[i]->text);
         sfText_setPosition(data->text,
-        snr_create_vector2f(win_size.x - 370, 45 + 50 * i));
+        snr_create_vector2f(win_size.x - 370, 45 + 50 * (i - scroll)));
         sfRenderWindow_drawText(engine->win, data->text, NULL);
     }
 }
