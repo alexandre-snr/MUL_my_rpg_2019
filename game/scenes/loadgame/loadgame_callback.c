@@ -22,7 +22,7 @@ void on_slot1_click(engine_t *engine)
 
     map_change->map = SPAWN_MAP;
     map_change->player_pos = snr_create_vector2f(20, 20);
-    map_change->inv.health_potions = 0;
+    map_change->inv.health_potions = 10;
     if (!status) {
         snr_ini_set(ini, "status", "stat", "1");
     }

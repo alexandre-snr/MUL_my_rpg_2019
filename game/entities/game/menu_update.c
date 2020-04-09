@@ -8,23 +8,40 @@
 #include "entities.h"
 #include "entities_data.h"
 #include "entity.h"
+#include "inventory.h"
 #include "menu.h"
 #include "string_convert.h"
 #include "string_utils.h"
 #include <SFML/Window/Keyboard.h>
 #include <stdlib.h>
 
-static void debug(engine_t *engine)
+static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)
+{
+    menu_entry_t *entry;
+    int *item_count = get_inventory_item(eng, item);
+
+    if (*item_count == 0)
+        return;
+    entry = malloc(sizeof(menu_entry_t));
+    entry->text = my_strcat(*item_count == 0 ? "0 " :
+    my_strcat(itos(*item_count, 0), " "),
+    get_inventory_item_name(item));
+    entries[*i] = entry;
+    (*i)++;
+}
+
+static void open_inventory(engine_t *engine)
 {
     menu_entry_t **entries;
+    int i = 0;
 
     if (sfKeyboard_isKeyPressed(sfKeyI)) {
-        entries = malloc(sizeof(menu_entry_t) * 21);
-        for (int i = 0; i < 20; i++) {
-            entries[i] = malloc(sizeof(menu_entry_t));
-            entries[i]->text = itos(i + 1, 0);
-        }
-        entries[20] = NULL;
+        entries = malloc(sizeof(menu_entry_t) * 100);
+        entries[i++] = malloc(sizeof(menu_entry_t));
+        entries[0]->text = my_strdup("YOUR INVENTORY:");
+        for (int item = 0; item < MAX; item++)
+            add_item(engine, entries, &i, item);
+        entries[i] = NULL;
         open_menu(engine, entries);
     }
 }
@@ -47,7 +64,7 @@ void menu_update(entity_t *self, engine_t *engine)
 {
     DATA(menu);
 
-    debug(engine);
+    open_inventory(engine);
     if (sfKeyboard_isKeyPressed(sfKeyEscape))
         close_menu(engine);
     if (data->entries == NULL)

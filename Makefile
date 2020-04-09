@@ -41,6 +41,7 @@ SRC		=	engine/core/engine.c									\
 			engine/ini/save.c										\
 			game/main.c												\
 			game/map_change.c										\
+			game/inventory.c										\
 			game/entities/splashscreen/sound.c						\
 			game/entities/splashscreen/video.c						\
 			game/entities/game/icon.c								\

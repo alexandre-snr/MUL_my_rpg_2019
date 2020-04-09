@@ -5,6 +5,13 @@
 ** menu
 */
 
+/*
+** EPITECH PROJECT, 2020
+** MUL_my_rpg_2019
+** File description:
+** menu
+*/
+
 #include "entities.h"
 #include "entities_data.h"
 #include "entity.h"
@@ -31,7 +38,8 @@ static void load_tex_sprites(entity_menu_data_t *data, engine_t *engine)
     sfSprite_setScale(data->sprite_panel, snr_create_vector2f(4, 5));
     sfSprite_setPosition(data->sprite_panel,
     snr_create_vector2f(win_size.x - 410, 10));
-    data->texture_selected = sfTexture_createFromFile("game/assets/ui/panel_beigeLight.png", NULL);
+    data->texture_selected =
+    sfTexture_createFromFile("game/assets/ui/panel_beigeLight.png", NULL);
     data->sprite_selected = sfSprite_create();
     sfSprite_setTexture(data->sprite_selected, data->texture_selected, sfFalse);
     sfSprite_setScale(data->sprite_selected, snr_create_vector2f(3.5f, 0.30f));
