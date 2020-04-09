@@ -54,6 +54,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/menu.c								\
 			game/entities/game/menu_update.c						\
 			game/entities/game/menu_entries.c						\
+			game/entities/game/reset_view.c							\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\

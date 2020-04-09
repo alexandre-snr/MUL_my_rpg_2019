@@ -26,3 +26,4 @@ entity_t *create_menu(void);
 void menu_update(entity_t *self, engine_t *engine);
 void close_menu(engine_t *engine);
 void open_menu(engine_t *engine, menu_entry_t **entries);
+entity_t *create_reset_view(void);
