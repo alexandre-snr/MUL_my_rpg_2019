@@ -34,3 +34,15 @@ char const *get_inventory_item_name(item_e item)
     }
     return (NULL);
 }
+
+void *get_inventory_item_use(item_e item)
+{
+    item_e triggers[] = {HEALTH_POTION, MAX};
+    void *results[] = {health_potion_use};
+
+    for (int i = 0; triggers[i] != MAX; i++) {
+        if (triggers[i] == item)
+            return (results[i]);
+    }
+    return (NULL);
+}

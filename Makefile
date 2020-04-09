@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-CFLAGS 	=	-Iengine/include -Igame/include -Wall -g
+CFLAGS 	=	-Iengine/include -Igame/include -Wall
 LDFLAGS	+=	-lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm
 
 EXEC 	=	my_rpg
@@ -42,6 +42,7 @@ SRC		=	engine/core/engine.c									\
 			game/main.c												\
 			game/map_change.c										\
 			game/inventory.c										\
+			game/items/health_potion.c								\
 			game/entities/splashscreen/sound.c						\
 			game/entities/splashscreen/video.c						\
 			game/entities/game/icon.c								\

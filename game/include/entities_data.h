@@ -92,6 +92,7 @@ typedef struct
 typedef struct
 {
     char *text;
+    void (*callback)(engine_t *);
 } menu_entry_t;
 
 typedef struct
@@ -101,6 +102,7 @@ typedef struct
     int entry_selected;
     int last_key_down;
     int last_key_up;
+    int last_key_enter;
     sfTexture *texture_panel;
     sfSprite *sprite_panel;
     sfTexture *texture_selected;

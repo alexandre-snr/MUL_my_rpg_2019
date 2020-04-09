@@ -22,3 +22,6 @@ typedef enum
 
 int *get_inventory_item(engine_t *engine, item_e item);
 char const *get_inventory_item_name(item_e item);
+void *get_inventory_item_use(item_e item);
+
+void health_potion_use(engine_t *engine);

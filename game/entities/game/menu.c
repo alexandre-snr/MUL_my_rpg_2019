@@ -87,11 +87,11 @@ static void destroy(entity_t *self, engine_t *engine)
 {
     DATA(menu);
 
+    close_menu(engine);
     sfTexture_destroy(data->texture_panel);
     sfSprite_destroy(data->sprite_panel);
     sfText_destroy(data->text);
     sfFont_destroy(data->font);
-    close_menu(engine);
 }
 
 entity_t *create_menu(void)
