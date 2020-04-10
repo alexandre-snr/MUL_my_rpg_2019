@@ -90,5 +90,14 @@ typedef struct
 
 typedef struct
 {
-    int slot_number;
-} entity_savegame_props_t;
+    char **path;
+    sfTexture **tex;
+    sfSprite *chara;
+    sfVector2f pos;
+    sfSprite **sprite;
+} entity_preview_data_t;
+
+typedef struct
+{
+    int number;
+} entity_preview_props_t;

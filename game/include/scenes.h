@@ -49,3 +49,9 @@ void on_slot3_click(engine_t *engine);
 //spawn_map
 scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change ,
 int slot_number);
+
+//chara_design
+scene_t *create_scene_playerdesign(engine_t *engine);
+void on_start_click(engine_t *engine);
+void on_next_click(engine_t *engine);
+void on_previous_click(engine_t *engine);

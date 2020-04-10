@@ -21,18 +21,19 @@ void on_slot1_click(engine_t *engine)
     map_change_t *map_change = malloc(sizeof(map_change_t));
 
     if (!status) {
-        snr_ini_set(ini, "status", "stat", "1");
+        snr_ini_set(ini, "status", "stat", "0");
         snr_ini_set(ini, "position", "x" , "20");
         snr_ini_set(ini, "position", "y", "20");
         snr_ini_set(ini, "position", "map", itos(SPAWN_MAP, 1));
         map_change->map = SPAWN_MAP;
         map_change->player_pos = snr_create_vector2f(20, 20);
+        snr_scene_manager_load(engine, create_scene_playerdesign(engine));
     } else {
         map_change->player_pos.x = stoi(*snr_ini_get(ini, "position", "x"));
         map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
         map_change->map = stoi(*snr_ini_get(ini, "postion", "map"));
+        load_map(engine, map_change, 1);
     }
-    load_map(engine, map_change, 1);
     snr_ini_save(ini);
     snr_ini_free(ini);
 }
