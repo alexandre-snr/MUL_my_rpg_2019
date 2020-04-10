@@ -11,6 +11,8 @@
 #include "engine.h"
 #include "map_change.h"
 
+char **get_current_slot(void);
+
 //splashscreen
 scene_t *create_scene_splashscreen(void);
 
