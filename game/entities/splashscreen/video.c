@@ -39,7 +39,6 @@ static void update(entity_t *self, engine_t *engine)
 {
     DATA(video);
 
-
     if ((engine->dt->since_start - data->start) > 3)
         snr_scene_manager_load(engine, create_scene_main_menu(engine));
     data->rect.left = ((int) ((engine->dt->since_start - data->start) * 25)
