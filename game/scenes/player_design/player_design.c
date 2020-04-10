@@ -38,7 +38,8 @@ static void create_icon_next(scene_t *scn, engine_t *engine)
     entity_button_props_t *props_next = malloc(sizeof(entity_button_props_t));
     sfVector2u win_size = sfRenderWindow_getSize(engine->win);
     sfFloatRect rect_next = {win_size.x / 2 + 300, win_size.y / 2, 70, 70};
-    sfFloatRect rect_ic_next = {win_size.x / 2 + 300, win_size.y, 64, 64};
+    sfFloatRect rect_ic_next = {win_size.x / 2 + 300 + 5,
+    win_size.y / 2, 64, 64};
 
     props_next->rect = rect_next;
     props_next->callback = on_next_click;
@@ -53,8 +54,9 @@ static void create_icon_previous(scene_t *scn, engine_t *engine)
     entity_button_props_t *props_previous = 
     malloc(sizeof(entity_button_props_t));
     sfVector2u win_size = sfRenderWindow_getSize(engine->win);
-    sfFloatRect rect_previous = {win_size.x / 2 - 300, win_size.y / 2, 70, 70};
-    sfFloatRect rect_ic_previous = {win_size.x / 2 - 300, win_size.y, 64, 64};
+    sfFloatRect rect_previous = {win_size.x / 2 - 365, win_size.y / 2, 70, 70};
+    sfFloatRect rect_ic_previous = {win_size.x / 2 - 365 + 5,
+    win_size.y / 2, 64, 64};
 
     props_previous->rect = rect_previous;
     props_previous->callback = on_previous_click;
