@@ -26,7 +26,7 @@ static void init(entity_t *self, engine_t *engine)
     data->texture = sfTexture_createFromFile(props->path, NULL);
     data->pos = map_change->player_pos;
     data->sprite = sfSprite_create();
-    data->rect = snr_create_intrect(0, 0, 32, 47.75);
+    data->rect = snr_create_intrect(0, 0, 19, 30);
     sfSprite_setTexture(data->sprite, data->texture, sfFalse);
     data->inv = map_change->inv;
     self->data = data;
