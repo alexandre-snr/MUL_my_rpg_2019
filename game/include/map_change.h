@@ -24,4 +24,4 @@ typedef struct
     inventory_t inv;
 } map_change_t;
 
-void load_map(engine_t *engine, map_change_t *map_change , int slot_number);
+void load_map(engine_t *engine, map_change_t *map_change);

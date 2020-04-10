@@ -37,8 +37,7 @@ static void add_entity(scene_t *scn)
 }
 
 
-scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change ,
-int slot_number)
+scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
 {
     scene_t *scn = snr_scene_create("Spawn Map");
     sfVector2f warp_pos = {600, 600};
@@ -48,7 +47,7 @@ int slot_number)
     scn->should_free_props = 1;
     add_entity(scn);
     snr_scene_add_entity(scn, NULL,
-    create_warp(&warp_coll, SPAWN_MAP, &warp_pos, 1), "Warp test");
+    create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
     snr_scene_add_entity(scn, NULL, create_reset_view(), "Rs");
     snr_scene_add_entity(scn, NULL, create_menu(), "Menu");
     return (scn);

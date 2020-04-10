@@ -87,7 +87,6 @@ typedef struct
     sfFloatRect coll;
     maps_e map;
     sfVector2f player_pos;
-    int slot_number;
 } entity_warp_props_t;
 
 typedef struct

@@ -27,12 +27,11 @@ static void update(entity_t *self, engine_t *engine)
         map_change->map = props->map;
         map_change->player_pos = props->player_pos;
         map_change->inv = p_data->inv;
-        load_map(engine, map_change, 1);
+        load_map(engine, map_change);
     }
 }
 
-entity_t *create_warp(sfFloatRect *coll, maps_e map, sfVector2f *player_pos,
-int slot_number)
+entity_t *create_warp(sfFloatRect *coll, maps_e map, sfVector2f *player_pos)
 {
     entity_t *ent = snr_entity_create();
     entity_warp_props_t *pr = malloc(sizeof(entity_warp_props_t));
@@ -40,7 +39,6 @@ int slot_number)
     pr->coll = *coll;
     pr->map = map;
     pr->player_pos = *player_pos;
-    pr->slot_number = slot_number;
     ent->props = pr;
     ent->update = update;
     return (ent);
