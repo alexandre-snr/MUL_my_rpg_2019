@@ -11,18 +11,29 @@
 #include "engine.h"
 #include "vector_helper.h"
 
-static void init(entity_t *self, engine_t *engine)
+static void create_path(entity_preview_data_t *data)
 {
-    IDATA(preview);
-    sfVector2u win_size = sfRenderWindow_getSize(engine->win);
-    sfVector2f scale = {5, 5};
-
+    data->path_game = malloc(sizeof(char *) * 5);
     data->path = malloc(sizeof(char *) * 5);
     data->path[0] = "game/assets/sprites/players_preview/chara1.png";
     data->path[1] = "game/assets/sprites/players_preview/chara2.png";
     data->path[2] = "game/assets/sprites/players_preview/chara3.png";
     data->path[3] = "game/assets/sprites/players_preview/chara4.png";
     data->path[4] = NULL;
+    data->path_game[0] = "game/assets/sprites/players/chara1.png";
+    data->path_game[1] = "game/assets/sprites/players/chara2.png";
+    data->path_game[2] = "game/assets/sprites/players/chara3.png";
+    data->path_game[3] = "game/assets/sprites/players/chara4.png";
+    data->path_game[4] = NULL;
+}
+
+static void init(entity_t *self, engine_t *engine)
+{
+    IDATA(preview);
+    sfVector2u win_size = sfRenderWindow_getSize(engine->win);
+    sfVector2f scale = {5, 5};
+
+    create_path(data);
     data->pos = snr_create_vector2f((win_size.x / 2) - (19.0f / 2.0f) * 5,
     (win_size.y / 2) - (31.0f / 2.0f)* 5);
     data->sprite = malloc(sizeof(sfSprite *) * 4);
@@ -55,6 +66,7 @@ static void destroy(entity_t *self, engine_t *engine)
         sfSprite_destroy(data->sprite[i]);
     }
     free(data->path);
+    free(data->path_game);
 }
 
 entity_t *create_preview(int number)

@@ -21,12 +21,11 @@ static char **create_labels(void)
     ini_t *ini[] = {snr_ini_load("game/assets/configs/save/slot1.ini"),
     snr_ini_load("game/assets/configs/save/slot2.ini"), 
     snr_ini_load("game/assets/configs/save/slot3.ini")};
-    int number = 1;
 
     labels[4] = NULL;
     for (int i = 0; i < 3; i++) {
         if (stoi(*snr_ini_get(ini[i], "status", "stat")))
-            labels[i] = my_strcat("slot ", itos(number, 0));
+            labels[i] = my_strcat("slot ", itos(i + 1, 0));
         else
             labels[i] = my_strdup("empty");
     }

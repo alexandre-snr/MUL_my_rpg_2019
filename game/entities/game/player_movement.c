@@ -14,12 +14,12 @@ static void animation(entity_player_data_t *data, sfVector2f *in, engine_t *en)
 {
     data->rect.top = in->y < 0 ? data->rect.height * 3 : data->rect.top;
     data->rect.top = in->y > 0 ? data->rect.height * 0 : data->rect.top;
-    data->rect.top = in->x < 0 ? data->rect.height * 2 : data->rect.top;
-    data->rect.top = in->x > 0 ? data->rect.height * 1 : data->rect.top;
+    data->rect.top = in->x < 0 ? data->rect.height * 1 : data->rect.top;
+    data->rect.top = in->x > 0 ? data->rect.height * 2 : data->rect.top;
     if (snr_get_len(in) == 0 || en->dt->val == 0.0f)
         data->rect.left = 0;
     else
-        data->rect.left = ((int) (en->dt->since_start * 10) % 4)
+        data->rect.left = ((int) (en->dt->since_start * 10) % 3)
         * data->rect.width;
 }
 

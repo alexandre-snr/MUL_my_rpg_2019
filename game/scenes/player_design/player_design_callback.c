@@ -22,7 +22,7 @@ void on_start_click(engine_t *engine)
     entity_preview_data_t *data = snr_scene_get_entity(engine->sm->scene,
     "Preview")->data;
     char *slot = *snr_ini_get(ini, "current", "slot");
-    char *path = my_strdup(data->path[props->number]);
+    char *path = my_strdup(data->path_game[props->number]);
     ini_t *save = snr_ini_load(slot);
 
     snr_ini_set(save, "skin", "path", path);

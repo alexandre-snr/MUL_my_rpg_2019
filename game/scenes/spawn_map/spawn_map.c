@@ -14,26 +14,39 @@
 #include "string_convert.h"
 #include <SFML/Graphics.h>
 
-scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change ,
-int slot_number)
+static void add_entity(scene_t *scn)
 {
-    scene_t *scn = snr_scene_create("Spawn Map");
     sfVector2f pos = {100, 100};
     sfFloatRect coll = {100, 100, 36, 32};
-    sfVector2f warp_pos = {600, 600};
-    sfFloatRect warp_coll = {0, 0, 16, 1000};
+    ini_t *current = snr_ini_load("game/assets/configs/save/current_slot.ini");
+    char *path = *snr_ini_get(current, "current", "slot");
+    ini_t *ini = snr_ini_load(path);
+    char *player_path = my_strdup(*snr_ini_get(ini, "skin", "path"));
 
-    scn->props = map_change;
-    scn->should_free_props = 1;
     snr_scene_add_entity(scn, NULL, create_camera(), "Camera");
     snr_scene_add_entity(scn, NULL, create_colliders(), "Coll");
     snr_scene_add_entity(scn, NULL,
     create_background("game/assets/sprites/maps/spawn_map.png"), "Bg");
     snr_scene_add_entity(scn, NULL,
-    create_player("game/assets/sprites/players/0.png"), "Player");
+    create_player(player_path), "Player");
     snr_scene_add_entity(scn, NULL,
     create_obstacle("game/assets/sprites/obstacles/trunk.png", &pos, &coll),
     "Obstacle Test");
+    snr_ini_free(current);
+    snr_ini_free(ini);
+}
+
+
+scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change ,
+int slot_number)
+{
+    scene_t *scn = snr_scene_create("Spawn Map");
+    sfVector2f warp_pos = {600, 600};
+    sfFloatRect warp_coll = {0, 0, 16, 1000};
+
+    add_entity(scn);
+    scn->props = map_change;
+    scn->should_free_props = 1;
     snr_scene_add_entity(scn, NULL,
     create_warp(&warp_coll, SPAWN_MAP, &warp_pos, slot_number), "Warp test");
     return (scn);

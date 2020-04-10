@@ -91,6 +91,7 @@ typedef struct
 typedef struct
 {
     char **path;
+    char **path_game;
     sfTexture **tex;
     sfSprite *chara;
     sfVector2f pos;
