@@ -8,6 +8,7 @@
 #pragma once
 
 #include "map_change.h"
+#include "inventory.h"
 #include <SFML/Audio/SoundBuffer.h>
 #include <SFML/Graphics.h>
 
@@ -54,6 +55,7 @@ typedef struct
     sfSprite *sprite;
     sfIntRect rect;
     sfVector2f pos;
+    inventory_t inv;
 } entity_player_data_t;
 
 typedef struct
@@ -102,3 +104,25 @@ typedef struct
 {
     int number;
 } entity_preview_props_t;
+
+typedef struct
+{
+    char *text;
+    void (*callback)(engine_t *);
+} menu_entry_t;
+
+typedef struct
+{
+    menu_entry_t **entries;
+    int entries_count;
+    int entry_selected;
+    int last_key_down;
+    int last_key_up;
+    int last_key_enter;
+    sfTexture *texture_panel;
+    sfSprite *sprite_panel;
+    sfTexture *texture_selected;
+    sfSprite *sprite_selected;
+    sfFont *font;
+    sfText *text;
+} entity_menu_data_t;

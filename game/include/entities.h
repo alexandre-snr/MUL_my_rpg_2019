@@ -24,3 +24,8 @@ entity_t *create_obstacle(char const *path, sfVector2f *pos, sfFloatRect *coll);
 entity_t *create_warp(sfFloatRect *coll, maps_e map, sfVector2f *player_pos,
 int slot_number);
 entity_t *create_preview(int number);
+entity_t *create_menu(void);
+void menu_update(entity_t *self, engine_t *engine);
+void close_menu(engine_t *engine);
+void open_menu(engine_t *engine, menu_entry_t **entries);
+entity_t *create_reset_view(void);

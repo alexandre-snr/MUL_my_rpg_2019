@@ -25,6 +25,7 @@ void on_start_click(engine_t *engine)
     char *path = my_strdup(data->path_game[props->number % 4]);
     ini_t *save = snr_ini_load(slot);
 
+    map_change->inv.health_potions = 10;
     snr_ini_set(save, "skin", "path", path);
     snr_ini_save(save);
     snr_ini_free(save);

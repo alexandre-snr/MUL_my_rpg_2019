@@ -44,10 +44,12 @@ int slot_number)
     sfVector2f warp_pos = {600, 600};
     sfFloatRect warp_coll = {0, 0, 16, 1000};
 
-    add_entity(scn);
     scn->props = map_change;
     scn->should_free_props = 1;
+    add_entity(scn);
     snr_scene_add_entity(scn, NULL,
-    create_warp(&warp_coll, SPAWN_MAP, &warp_pos, slot_number), "Warp test");
+    create_warp(&warp_coll, SPAWN_MAP, &warp_pos, 1), "Warp test");
+    snr_scene_add_entity(scn, NULL, create_reset_view(), "Rs");
+    snr_scene_add_entity(scn, NULL, create_menu(), "Menu");
     return (scn);
 }

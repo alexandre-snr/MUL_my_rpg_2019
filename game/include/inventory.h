@@ -1,0 +1,27 @@
+/*
+** EPITECH PROJECT, 2020
+** MUL_my_rpg_2019
+** File description:
+** inventory
+*/
+
+#pragma once
+
+#include "engine.h"
+
+typedef struct
+{
+    int health_potions;
+} inventory_t;
+
+typedef enum
+{
+    HEALTH_POTION,
+    MAX
+} item_e;
+
+int *get_inventory_item(engine_t *engine, item_e item);
+char const *get_inventory_item_name(item_e item);
+void *get_inventory_item_use(item_e item);
+
+void health_potion_use(engine_t *engine);

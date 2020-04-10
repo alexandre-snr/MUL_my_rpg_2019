@@ -21,7 +21,7 @@ char *my_strcpy(char *dest, char const *src)
     return (dest);
 }
 
-char *my_strcat(char *dest, char *src)
+char *my_strcat(char const *dest, char const *src)
 {
     int i;
     int j;

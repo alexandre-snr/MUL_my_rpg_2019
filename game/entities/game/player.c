@@ -28,6 +28,7 @@ static void init(entity_t *self, engine_t *engine)
     data->sprite = sfSprite_create();
     data->rect = snr_create_intrect(0, 0, 32, 47.75);
     sfSprite_setTexture(data->sprite, data->texture, sfFalse);
+    data->inv = map_change->inv;
     self->data = data;
 }
 

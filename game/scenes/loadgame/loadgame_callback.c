@@ -40,18 +40,18 @@ void on_slot1_click(engine_t *engine)
 {
     ini_t *ini = snr_ini_load("game/assets/configs/save/slot1.ini");
     int status = stoi(*(snr_ini_get(ini, "status", "stat")));
-    map_change_t *map_change = malloc(sizeof(map_change_t));
+    map_change_t *map_change;
 
     current_slot(1);
     if (!status) {
         init(ini);
-        map_change->map = SPAWN_MAP;
-        map_change->player_pos = snr_create_vector2f(20, 20);
         snr_scene_manager_load(engine, create_scene_playerdesign(engine));
     } else {
+        map_change = malloc(sizeof(map_change_t));
         map_change->player_pos.x = stoi(*snr_ini_get(ini, "position", "x"));
         map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
         map_change->map = stoi(*snr_ini_get(ini, "position", "map"));
+        map_change->inv.health_potions = 10;
         load_map(engine, map_change, 1);
     }
     snr_ini_save(ini);
@@ -65,6 +65,7 @@ void on_slot2_click(engine_t *engine)
     map_change_t *map_change = malloc(sizeof(map_change_t));
 
     current_slot(2);
+    map_change->inv.health_potions = 10;
     if (!status) {
         init(ini);
         map_change->map = SPAWN_MAP;
@@ -87,6 +88,7 @@ void on_slot3_click(engine_t *engine)
     map_change_t *map_change = malloc(sizeof(map_change_t));
 
     current_slot(3);
+    map_change->inv.health_potions = 10;
     if (!status) {
         init(ini);
         map_change->map = SPAWN_MAP;

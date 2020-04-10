@@ -8,6 +8,7 @@
 #pragma once
 
 #include "engine.h"
+#include "inventory.h"
 #include <SFML/System/Vector2.h>
 
 typedef enum
@@ -20,6 +21,7 @@ typedef struct
 {
     sfVector2f player_pos;
     maps_e map;
+    inventory_t inv;
 } map_change_t;
 
 void load_map(engine_t *engine, map_change_t *map_change , int slot_number);
