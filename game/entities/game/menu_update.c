@@ -20,6 +20,8 @@ static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)
     menu_entry_t *entry;
     int *item_count = get_inventory_item(eng, item);
 
+    if (*item_count == 0 || is_inventory_item_player_stat(item))
+        return;
     entry = malloc(sizeof(menu_entry_t));
     entry->text = my_strcat(*item_count == 0 ? "0 " :
     my_strcat(itos(*item_count, 0), " "),

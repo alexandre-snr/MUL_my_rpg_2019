@@ -20,11 +20,22 @@ int *get_inventory_item(engine_t *engine, item_e item)
     &p_data->inv.intelligence, &p_data->inv.defense,
     &p_data->inv.health_potions};
 
-    for (int i = 0; triggers[i] != MAX; i++) {
+    for (int i = 0; triggers[i] != MAX; i++)
         if (triggers[i] == item)
             return (results[i]);
-    }
     return (NULL);
+}
+
+int is_inventory_item_player_stat(item_e item)
+{
+    item_e triggers[] = {STAT_HEALTH, STAT_MANA, STAT_LEVEL, STAT_XP,
+    STAT_STRENGTH, STAT_INTELLIGENCE, STAT_DEFENSE, MAX};
+
+    for (int i = 0; triggers[i] != MAX; i++)
+        if (triggers[i] == item)
+            return (1);
+    return (0);
+
 }
 
 char const *get_inventory_item_name(item_e item)
@@ -34,10 +45,9 @@ char const *get_inventory_item_name(item_e item)
     char const *results[] = {"Vie", "Mana", "Niveau", "Experience", "Force",
     "Intelligence", "Defense", "Potion de vie"};
 
-    for (int i = 0; triggers[i] != MAX; i++) {
+    for (int i = 0; triggers[i] != MAX; i++)
         if (triggers[i] == item)
             return (results[i]);
-    }
     return (NULL);
 }
 
@@ -46,9 +56,8 @@ void *get_inventory_item_use(item_e item)
     item_e triggers[] = {HEALTH_POTION, MAX};
     void *results[] = {health_potion_use};
 
-    for (int i = 0; triggers[i] != MAX; i++) {
+    for (int i = 0; triggers[i] != MAX; i++)
         if (triggers[i] == item)
             return (results[i]);
-    }
     return (NULL);
 }
