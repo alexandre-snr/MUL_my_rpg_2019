@@ -56,6 +56,9 @@ SRC		=	engine/core/engine.c									\
 			game/entities/chara_design/chara_preview.c				\
 			game/entities/game/menu.c								\
 			game/entities/game/menu_update.c						\
+			game/entities/game/menu_main.c							\
+			game/entities/game/menu_inventory.c						\
+			game/entities/game/menu_stats.c							\
 			game/entities/game/menu_entries.c						\
 			game/entities/game/reset_view.c							\
 			game/scenes/splashscreen/splashscreen.c					\

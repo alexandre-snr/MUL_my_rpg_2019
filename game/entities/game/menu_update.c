@@ -15,38 +15,6 @@
 #include <SFML/Window/Keyboard.h>
 #include <stdlib.h>
 
-static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)
-{
-    menu_entry_t *entry;
-    int *item_count = get_inventory_item(eng, item);
-
-    if (*item_count == 0 || is_inventory_item_player_stat(item))
-        return;
-    entry = malloc(sizeof(menu_entry_t));
-    entry->text = my_strcat(*item_count == 0 ? "0 " :
-    my_strcat(itos(*item_count, 0), " "),
-    get_inventory_item_name(item));
-    entry->callback = get_inventory_item_use(item);
-    entries[*i] = entry;
-    (*i)++;
-}
-
-static void open_inventory(engine_t *engine, int bypass_key)
-{
-    menu_entry_t **entries;
-    int i = 0;
-
-    if (sfKeyboard_isKeyPressed(sfKeyI) || bypass_key) {
-        entries = malloc(sizeof(menu_entry_t) * 100);
-        entries[i++] = malloc(sizeof(menu_entry_t));
-        entries[0]->text = my_strdup("VOTRE INVENTAIRE:");
-        entries[0]->callback = NULL;
-        for (int item = 0; item < MAX; item++)
-            add_item(engine, entries, &i, item);
-        entries[i] = NULL;
-        open_menu(engine, entries);
-    }
-}
 
 static void handle_selector(entity_menu_data_t *data, engine_t *engine)
 {
@@ -59,14 +27,13 @@ static void handle_selector(entity_menu_data_t *data, engine_t *engine)
     if (sfKeyboard_isKeyPressed(sfKeyReturn) && !data->last_key_enter
     && data->entries[data->entry_selected]->callback != NULL) {
         data->entries[data->entry_selected]->callback(engine);
-        open_inventory(engine, 1);
         data->entry_selected = old_selected;
     }
     data->last_key_down = sfKeyboard_isKeyPressed(sfKeyDown);
     data->last_key_up = sfKeyboard_isKeyPressed(sfKeyUp);
     data->last_key_enter = sfKeyboard_isKeyPressed(sfKeyReturn);
-    if (data->entry_selected < 0)
-        data->entry_selected = 0;
+    if (data->entry_selected < 1)
+        data->entry_selected = 1;
     else if (data->entry_selected > data->entries_count - 1)
         data->entry_selected = data->entries_count - 1;
 }
@@ -75,7 +42,7 @@ void menu_update(entity_t *self, engine_t *engine)
 {
     DATA(menu);
 
-    open_inventory(engine, 0);
+    open_main_menu(engine, 0);
     if (sfKeyboard_isKeyPressed(sfKeyEscape))
         close_menu(engine);
     if (data->entries == NULL)
