@@ -35,7 +35,6 @@ static void init(entity_t *self, engine_t *engine)
 static void update(entity_t *self, engine_t *engine)
 {
     player_movement(self, engine);
-    save(engine);
 }
 
 static void draw(entity_t *self, engine_t *engine)

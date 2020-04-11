@@ -8,6 +8,8 @@
 #pragma once
 
 #include "engine.h"
+#include "map_change.h"
 
 char *get_current_slot(void);
 void save(engine_t *engine);
+void load_inventory(map_change_t *map_change);

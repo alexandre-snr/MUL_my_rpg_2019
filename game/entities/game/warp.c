@@ -40,7 +40,6 @@ int slot_number)
     pr->coll = *coll;
     pr->map = map;
     pr->player_pos = *player_pos;
-    pr->slot_number = slot_number;
     ent->props = pr;
     ent->update = update;
     return (ent);
