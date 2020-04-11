@@ -14,6 +14,7 @@
 #include "string_convert.h"
 #include "vector_helper.h"
 #include "string_utils.h"
+#include "save.h"
 
 static void init(ini_t *ini)
 {
@@ -35,7 +36,6 @@ static void current_slot(int number)
     snr_ini_free(ini);
 }
 
-
 void on_slot1_click(engine_t *engine)
 {
     ini_t *ini = snr_ini_load("game/assets/configs/save/slot1.ini");
@@ -52,6 +52,7 @@ void on_slot1_click(engine_t *engine)
         map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
         map_change->map = stoi(*snr_ini_get(ini, "position", "map"));
         map_change->inv.health_potions = 10;
+        load_inventory(map_change);
         load_map(engine, map_change);
     }
     snr_ini_save(ini);
@@ -68,13 +69,12 @@ void on_slot2_click(engine_t *engine)
     map_change->inv.health_potions = 10;
     if (!status) {
         init(ini);
-        map_change->map = SPAWN_MAP;
-        map_change->player_pos = snr_create_vector2f(20, 20);
         snr_scene_manager_load(engine, create_scene_playerdesign(engine));
     } else {
         map_change->player_pos.x = stoi(*snr_ini_get(ini, "position", "x"));
         map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
         map_change->map = stoi(*snr_ini_get(ini, "position", "map"));
+        load_inventory(map_change);
         load_map(engine, map_change);
     }
     snr_ini_save(ini);
@@ -91,13 +91,12 @@ void on_slot3_click(engine_t *engine)
     map_change->inv.health_potions = 10;
     if (!status) {
         init(ini);
-        map_change->map = SPAWN_MAP;
-        map_change->player_pos = snr_create_vector2f(20, 20);
         snr_scene_manager_load(engine, create_scene_playerdesign(engine));
     } else {
         map_change->player_pos.x = stoi(*snr_ini_get(ini, "position", "x"));
         map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
         map_change->map = stoi(*snr_ini_get(ini, "position", "map"));
+        load_inventory(map_change);
         load_map(engine, map_change);
     }
     snr_ini_save(ini);
