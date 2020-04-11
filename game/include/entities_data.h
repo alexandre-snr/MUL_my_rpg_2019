@@ -125,3 +125,8 @@ typedef struct
     sfFont *font;
     sfText *text;
 } entity_menu_data_t;
+
+typedef struct
+{
+    double dt_save;
+} entity_autosave_data_t;

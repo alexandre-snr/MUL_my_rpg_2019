@@ -51,15 +51,7 @@ void on_slot1_click(engine_t *engine)
         map_change->player_pos.x = stoi(*snr_ini_get(ini, "position", "x"));
         map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
         map_change->map = stoi(*snr_ini_get(ini, "position", "map"));
-        map_change->inv.health_potions = 10;
         load_inventory(map_change);
-        map_change->inv.health = 100;
-        map_change->inv.mana = 100;
-        map_change->inv.level = 1;
-        map_change->inv.xp = 0;
-        map_change->inv.strength = 1;
-        map_change->inv.intelligence = 1;
-        map_change->inv.defense = 1;
         load_map(engine, map_change);
     }
     snr_ini_save(ini);

@@ -19,7 +19,8 @@ void load_inventory(map_change_t *map_change)
 {
     char *path = get_current_slot();
     inventory_t inv = map_change->inv;
-    int *nb[] = {&inv.health_potions};
+    int *nb[] = {&inv.health, &inv.mana, &inv.level, &inv.xp, &inv.strength,
+    &inv.intelligence, &inv.defense, &inv.health_potions};
     ini_t *ini = snr_ini_load(path);
 
     for (int i = 0; i < MAX; i++) {
@@ -48,15 +49,16 @@ void save(engine_t *engine)
 {
     char *path = get_current_slot();
     ini_t *ini = snr_ini_load(path);
-    int *items_nb;
+    int **number = malloc(sizeof(int *) * 50);
 
     for (int i = 0; i < MAX; i++) {
-        items_nb = get_inventory_item(engine, i);
+        number[i] = get_inventory_item(engine, i);
         snr_ini_set(ini, "items", i != 0 ? itos(i, 0) : my_strdup("0"),
-        *items_nb != 0 ? itos(*items_nb, 0) : my_strdup("0"));
+        *number[i] != 0 ? itos(*number[i], 0) : my_strdup("0"));
     }
     save_position(engine, ini);
     free(path);
+    free(number);
     snr_ini_save(ini);
     snr_ini_free(ini);
 }

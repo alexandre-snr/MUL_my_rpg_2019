@@ -12,30 +12,42 @@
 #include "entities_data.h"
 #include "string_convert.h"
 #include "string_utils.h"
+#include "save.h"
+
+static void init(map_change_t *map_change, ini_t *ini)
+{
+    inventory_t inv  = map_change->inv;
+    int *save[] = {&inv.health, &inv.mana, &inv.level, &inv.xp, &inv.strength,
+    &inv.intelligence, &inv.defense, &inv.health_potions};
+
+    inv.health_potions = 10;
+    inv.health = 100;
+    inv.mana = 100;
+    inv.level = 1;
+    inv.xp = 0;
+    inv.strength = 1;
+    inv.intelligence = 1;
+    inv.defense = 1;
+    for (int i = 0; i < MAX; i++) {
+        snr_ini_set(ini, "items", i != 0 ? itos(i, 0) : my_strdup("0"),
+        *save[i] != 0 ? itos(*save[i], 0) : my_strdup("0"));
+    }
+    map_change->inv = inv;
+}
 
 void on_start_click(engine_t *engine)
 {
     map_change_t *map_change = malloc(sizeof(map_change_t));
-    ini_t *ini = snr_ini_load("game/assets/configs/save/current_slot.ini");
+    ini_t *ini = snr_ini_load(get_current_slot());
     entity_preview_props_t *props = snr_scene_get_entity(engine->sm->scene,
     "Preview")->props;
     entity_preview_data_t *data = snr_scene_get_entity(engine->sm->scene,
     "Preview")->data;
-    char *slot = *snr_ini_get(ini, "current", "slot");
     char *path = my_strdup(data->path_game[props->number % 4]);
-    ini_t *save = snr_ini_load(slot);
 
-    map_change->inv.health_potions = 10;
-    map_change->inv.health = 100;
-    map_change->inv.mana = 100;
-    map_change->inv.level = 1;
-    map_change->inv.xp = 0;
-    map_change->inv.strength = 1;
-    map_change->inv.intelligence = 1;
-    map_change->inv.defense = 1;
-    snr_ini_set(save, "skin", "path", path);
-    snr_ini_save(save);
-    snr_ini_free(save);
+    snr_ini_set(ini, "skin", "path", path);
+    init(map_change, ini);
+    snr_ini_save(ini);
     snr_ini_free(ini);
     load_map(engine, map_change);
 }
