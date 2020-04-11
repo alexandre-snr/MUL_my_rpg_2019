@@ -26,11 +26,18 @@ void on_start_click(engine_t *engine)
     ini_t *save = snr_ini_load(slot);
 
     map_change->inv.health_potions = 10;
+    map_change->inv.health = 100;
+    map_change->inv.mana = 100;
+    map_change->inv.level = 1;
+    map_change->inv.xp = 0;
+    map_change->inv.strength = 1;
+    map_change->inv.intelligence = 1;
+    map_change->inv.defense = 1;
     snr_ini_set(save, "skin", "path", path);
     snr_ini_save(save);
     snr_ini_free(save);
     snr_ini_free(ini);
-    load_map(engine, map_change, 1);
+    load_map(engine, map_change);
 }
 
 void on_next_click(engine_t *engine)
