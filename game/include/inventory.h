@@ -11,11 +11,25 @@
 
 typedef struct
 {
+    int health;
+    int mana;
+    int level;
+    int xp;
+    int strength;
+    int intelligence;
+    int defense;
     int health_potions;
 } inventory_t;
 
 typedef enum
 {
+    STAT_HEALTH,
+    STAT_MANA,
+    STAT_LEVEL,
+    STAT_XP,
+    STAT_STRENGTH,
+    STAT_INTELLIGENCE,
+    STAT_DEFENSE,
     HEALTH_POTION,
     MAX
 } item_e;

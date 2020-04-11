@@ -20,8 +20,6 @@ static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)
     menu_entry_t *entry;
     int *item_count = get_inventory_item(eng, item);
 
-    if (*item_count == 0)
-        return;
     entry = malloc(sizeof(menu_entry_t));
     entry->text = my_strcat(*item_count == 0 ? "0 " :
     my_strcat(itos(*item_count, 0), " "),
@@ -39,7 +37,7 @@ static void open_inventory(engine_t *engine, int bypass_key)
     if (sfKeyboard_isKeyPressed(sfKeyI) || bypass_key) {
         entries = malloc(sizeof(menu_entry_t) * 100);
         entries[i++] = malloc(sizeof(menu_entry_t));
-        entries[0]->text = my_strdup("YOUR INVENTORY:");
+        entries[0]->text = my_strdup("VOTRE INVENTAIRE:");
         entries[0]->callback = NULL;
         for (int item = 0; item < MAX; item++)
             add_item(engine, entries, &i, item);
