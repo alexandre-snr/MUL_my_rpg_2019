@@ -47,6 +47,7 @@ entity_t *create_background(char const *path)
 
     pr->path = path;
     ent->props = pr;
+    ent->depth = 1;
     ent->init = init;
     ent->draw = draw;
     ent->destroy = destroy;

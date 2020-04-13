@@ -39,6 +39,7 @@ entity_t *create_camera(void)
 {
     entity_t *ent = snr_entity_create();
 
+    ent->depth = 0;
     ent->draw = draw;
     return (ent);
 }

@@ -64,6 +64,7 @@ entity_t *create_rain(void)
 {
     entity_t *ent = snr_entity_create();
 
+    ent->depth = 10001;
     ent->init = init;
     ent->update = update;
     ent->draw = draw;

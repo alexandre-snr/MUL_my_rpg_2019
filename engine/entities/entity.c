@@ -8,6 +8,16 @@
 #include "entity.h"
 #include <stdlib.h>
 
+static void set_callback(entity_t *new)
+{
+    new->on_mouse_down = NULL;
+    new->on_mouse_up = NULL;
+    new->on_mouse_moved = NULL;
+    new->on_scroll = NULL;
+    new->on_key_down = NULL;
+    new->on_key_up = NULL;
+}
+
 entity_t *snr_entity_create(void)
 {
     entity_t *new = malloc(sizeof(entity_t));
@@ -23,12 +33,8 @@ entity_t *snr_entity_create(void)
     new->props = NULL;
     new->id = 0;
     new->enabled = 1;
-    new->on_mouse_down = NULL;
-    new->on_mouse_up = NULL;
-    new->on_mouse_moved = NULL;
-    new->on_scroll = NULL;
-    new->on_key_down = NULL;
-    new->on_key_up = NULL;
+    new->depth = 0;
+    set_callback(new);
     return (new);
 }
 

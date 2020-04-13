@@ -5,6 +5,7 @@
 ** player
 */
 
+#include "delta_time.h"
 #include "entities.h"
 #include "entities_data.h"
 #include "engine.h"
@@ -34,7 +35,10 @@ static void init(entity_t *self, engine_t *engine)
 
 static void update(entity_t *self, engine_t *engine)
 {
+    DATA(player);
     player_movement(self, engine);
+
+    self->depth = 5000 + data->pos.y;
 }
 
 static void draw(entity_t *self, engine_t *engine)

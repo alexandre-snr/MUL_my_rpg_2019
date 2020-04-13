@@ -52,6 +52,7 @@ entity_t *create_colliders(void)
 {
     entity_t *ent = snr_entity_create();
 
+    ent->depth = 10003;
     ent->init = init;
     ent->destroy = destroy;
     return (ent);

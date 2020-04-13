@@ -98,6 +98,7 @@ entity_t *create_menu(void)
 {
     entity_t *ent = snr_entity_create();
 
+    ent->depth = 10002;
     ent->init = init;
     ent->update = menu_update;
     ent->draw = draw;

@@ -23,6 +23,7 @@ entity_t *create_reset_view(void)
 {
     entity_t *ent = snr_entity_create();
 
+    ent->depth = 10000;
     ent->draw = draw;
     return (ent);
 }

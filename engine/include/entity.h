@@ -32,6 +32,7 @@ typedef struct entity
     char *name;
     unsigned int id;
     int enabled;
+    int depth;
 } entity_t;
 
 entity_t *snr_entity_create(void);

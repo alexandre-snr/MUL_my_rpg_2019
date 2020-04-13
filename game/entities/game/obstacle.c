@@ -31,6 +31,13 @@ static void init(entity_t *self, engine_t *engine)
     self->data = data;
 }
 
+static void update(entity_t *self, engine_t *engine)
+{
+    PR(obstacle);
+
+    self->depth = 5000 + props->pos.y;
+}
+
 static void draw(entity_t *self, engine_t *engine)
 {
     DATA(obstacle);
@@ -59,6 +66,7 @@ entity_t *create_obstacle(char const *path, sfVector2f *pos, sfFloatRect *coll)
     pr->coll = *coll;
     ent->props = pr;
     ent->init = init;
+    ent->update = update;
     ent->draw = draw;
     ent->destroy = destroy;
     return (ent);
