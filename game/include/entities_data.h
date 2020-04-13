@@ -130,3 +130,9 @@ typedef struct
 {
     double dt_save;
 } entity_autosave_data_t;
+
+#define RAIN_DROPS 1500
+typedef struct
+{
+    sfVector2f drops[RAIN_DROPS];
+} entity_rain_data_t;
