@@ -26,17 +26,13 @@ static void animation(entity_player_data_t *data, sfVector2f *in, engine_t *en)
 static sfVector2f get_input(void)
 {
     sfVector2f input = {0, 0};
-    float input_len = 0;
 
     input.x += sfKeyboard_isKeyPressed(sfKeyQ) ? -1 : 0;
     input.x += sfKeyboard_isKeyPressed(sfKeyD) ? 1 : 0;
     input.y += sfKeyboard_isKeyPressed(sfKeyZ) ? -1 : 0;
     input.y += sfKeyboard_isKeyPressed(sfKeyS) ? 1 : 0;
-    input_len = snr_get_len(&input);
-    if (input_len > 0) {
-        input.x /= input_len;
-        input.y /= input_len;
-    }
+    if (input.x != 0)
+        input.y = 0;
     return (input);
 }
 
@@ -46,7 +42,6 @@ void player_movement(entity_t *self, engine_t *engine)
     sfFloatRect rect = {0, 0, data->rect.width, data->rect.height / 2};
     sfVector2f input = get_input();
     const float speed = 200;
-
 
     data->pos.x += input.x * speed * engine->dt->val;
     data->pos.y += input.y * speed * engine->dt->val;
