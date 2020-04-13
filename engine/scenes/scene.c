@@ -78,6 +78,7 @@ void snr_scene_update(scene_t *scene, engine_t *engine)
         temp = temp->next;
     }
     snr_scene_process_gc(scene, engine);
+    snr_scene_order(scene, engine);
 }
 
 void snr_scene_draw(scene_t *scene, engine_t *engine)

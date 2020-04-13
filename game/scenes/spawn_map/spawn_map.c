@@ -17,7 +17,7 @@
 static void add_entity(scene_t *scn)
 {
     sfVector2f pos = {100, 100};
-    sfFloatRect coll = {100, 100, 36, 32};
+    sfFloatRect coll = {100, 110, 36, 22};
     ini_t *current = snr_ini_load("game/assets/configs/save/current_slot.ini");
     char *path = *snr_ini_get(current, "current", "slot");
     ini_t *ini = snr_ini_load(path);

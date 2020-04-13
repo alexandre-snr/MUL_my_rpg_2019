@@ -21,6 +21,7 @@ SRC		=	engine/core/engine.c									\
 			engine/scenes/scene_add_entity.c						\
 			engine/scenes/scene_get_entity.c						\
 			engine/scenes/scene_remove_entity.c						\
+			engine/scenes/scene_depth.c								\
 			engine/scenes/scene_manager.c							\
 			engine/utils/delta_time.c								\
 			engine/utils/output.c									\

@@ -39,7 +39,7 @@ static sfVector2f get_input(void)
 void player_movement(entity_t *self, engine_t *engine)
 {
     DATA(player);
-    sfFloatRect rect = {0, 0, data->rect.width, data->rect.height / 2};
+    sfFloatRect rect = {0, 0, data->rect.width, data->rect.height / 4};
     sfVector2f input = get_input();
     const float speed = 200;
 

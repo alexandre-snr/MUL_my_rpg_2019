@@ -34,3 +34,4 @@ entity_t *snr_scene_get_entity(scene_t *, char const *);
 void snr_scene_update(scene_t *, engine_t *);
 void snr_scene_pevent(engine_t *, scene_t *, sfEvent *);
 void snr_scene_draw(scene_t *, engine_t *);
+void snr_scene_order(scene_t *scene, engine_t *engine);

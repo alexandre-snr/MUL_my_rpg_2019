@@ -36,8 +36,8 @@ static void init(entity_t *self, engine_t *engine)
 static void update(entity_t *self, engine_t *engine)
 {
     DATA(player);
-    player_movement(self, engine);
 
+    player_movement(self, engine);
     self->depth = 5000 + data->pos.y;
 }
 
