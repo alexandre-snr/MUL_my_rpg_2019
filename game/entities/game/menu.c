@@ -35,14 +35,12 @@ static void load_tex_sprites(entity_menu_data_t *data, engine_t *engine)
     sfTexture_createFromFile("game/assets/ui/panel_beige.png", NULL);
     data->sprite_panel = sfSprite_create();
     sfSprite_setTexture(data->sprite_panel, data->texture_panel, sfTrue);
-    sfSprite_setScale(data->sprite_panel, snr_create_vector2f(4, 5));
     sfSprite_setPosition(data->sprite_panel,
     snr_create_vector2f(win_size.x - 410, 10));
     data->texture_selected =
     sfTexture_createFromFile("game/assets/ui/panel_beigeLight.png", NULL);
     data->sprite_selected = sfSprite_create();
     sfSprite_setTexture(data->sprite_selected, data->texture_selected, sfFalse);
-    sfSprite_setScale(data->sprite_selected, snr_create_vector2f(3.5f, 0.30f));
 }
 
 static void init(entity_t *self, engine_t *engine)

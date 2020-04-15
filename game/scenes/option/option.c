@@ -56,7 +56,7 @@ scene_t *create_scene_option(engine_t *engine)
     float buttons_height = win_size.y - 400;
     float button_height = (buttons_height / buttons_count) - 20;
     sfFloatRect button_rect = {win_size.x / 2 - 200, 0, 400, button_height};
-    char *labels[] = {"Resolution", "Volume", "Main Menu"};
+    char *labels[] = {"Resolution", "Volume", "Retour"};
     void (*callbacks[])(engine_t *) = {on_resolution_click, on_volume_click,
     on_main_menu_click};
 

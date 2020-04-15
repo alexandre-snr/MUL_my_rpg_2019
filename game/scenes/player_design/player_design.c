@@ -73,7 +73,7 @@ static void create_title(scene_t *scn, engine_t *engine)
     sfFloatRect rect = {win_size.x / 2 + 110, 25, 300, 100};
 
     props->color = sfWhite;
-    props->string = "Choose your character";
+    props->string = "Choix du personnage";
     props->rect = rect;
     props->size = 80;
     props->h_align = RIGHT;

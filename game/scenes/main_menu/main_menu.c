@@ -72,7 +72,7 @@ scene_t *create_scene_main_menu(engine_t *engine)
     int buttons_count = 4;
     float button_height = (buttons_height / buttons_count) - 20;
     sfFloatRect button_rect = {win_size.x / 2 - 200, 0, 400, button_height};
-    char *labels[] = {"Play", "How to play", "Options", "Quit"};
+    char *labels[] = {"Jouer", "Guide", "Options", "Quitter"};
     void (*callbacks[])(engine_t *) = {on_play_click, on_how_to_click,
     on_options_click, on_quit_click};
 

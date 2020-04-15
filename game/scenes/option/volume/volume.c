@@ -105,11 +105,11 @@ scene_t *create_scene_volume(engine_t *engine)
     snr_scene_add_entity(scn, NULL,
     create_title(80, win_size.x, 50, "Volume"), "");
     snr_scene_add_entity(scn, NULL,
-    create_title(40, win_size.x, 150, "Effects"), "");
+    create_title(40, win_size.x, 150, "Effets sonores"), "");
     snr_scene_add_entity(scn, NULL,
-    create_title(40, win_size.x, 350, "Music"), "");
+    create_title(40, win_size.x, 350, "Musique"), "");
     create_effects(scn, win_size);
     create_music(scn, win_size);
-    create_button(scn, "Back", on_options_click, &rect);
+    create_button(scn, "Retour", on_options_click, &rect);
     return (scn);
 }

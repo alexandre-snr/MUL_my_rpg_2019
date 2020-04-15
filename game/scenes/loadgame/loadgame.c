@@ -29,7 +29,7 @@ static char **create_labels(void)
         else
             labels[i] = my_strdup("empty");
     }
-    labels[3] = "Main Menu";
+    labels[3] = "Retour";
     return (labels);
 }
 
@@ -59,7 +59,7 @@ static void create_title(scene_t *scn, engine_t *engine)
     sfFloatRect rect = {win_size.x / 2 + 110, 50, 200, 100};
 
     props->color = sfWhite;
-    props->string = "Choose your game";
+    props->string = "Choisir une sauvegarde";
     props->rect = rect;
     props->size = 80;
     props->h_align = RIGHT;

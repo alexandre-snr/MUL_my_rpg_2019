@@ -57,7 +57,7 @@ scene_t *create_scene_resolution(engine_t *engine)
     int buttons_count = 4;
     float button_height = (buttons_height / buttons_count) - 20;
     sfFloatRect button_rect = {win_size.x / 2  - 200, 0, 400, button_height};
-    char *labels[] = {"Fullscreen", "1920 x 1080", "1280 x 766", "Back"};
+    char *labels[] = {"Plein ecran", "1920 x 1080", "1280 x 766", "Retour"};
     void (*callbacks[])(engine_t *) = {on_fullscreen_click, on_1920_click,
     on_1280_click, on_options_click};
 
