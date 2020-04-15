@@ -12,8 +12,27 @@
 #include "scene.h"
 #include "vector_helper.h"
 #include <SFML/Graphics.h>
-#include <SFML/Graphics/RenderWindow.h>
-#include <SFML/Graphics/View.h>
+#include <stdlib.h>
+
+static void init(entity_t *self, engine_t *engine)
+{
+    IDATA(camera);
+
+    data->old.x = 0;
+    data->old.y = 0;
+    data->delta.x = 0;
+    data->delta.y = 0;
+    self->data = data;
+}
+
+static void calc_delta(entity_t *self, sfVector2f new)
+{
+    DATA(camera);
+
+    data->delta.x = new.x - data->old.x;
+    data->delta.y = new.y - data->old.y;
+    data->old = new;
+}
 
 static void draw(entity_t *self, engine_t *engine)
 {
@@ -32,6 +51,7 @@ static void draw(entity_t *self, engine_t *engine)
     pos.y = pos.y > bg_size.y - w_size.y / 2 ? bg_size.y - w_size.y / 2 : pos.y;
     sfView_setSize(view, snr_create_vector2f(w_size.x, w_size.y));
     sfView_setCenter(view, pos);
+    calc_delta(self, pos);
     sfRenderWindow_setView(engine->win, view);
 }
 
@@ -40,6 +60,7 @@ entity_t *create_camera(void)
     entity_t *ent = snr_entity_create();
 
     ent->depth = 0;
+    ent->init = init;
     ent->draw = draw;
     return (ent);
 }

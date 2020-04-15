@@ -51,6 +51,12 @@ typedef struct
 
 typedef struct
 {
+    sfVector2f old;
+    sfVector2f delta;
+} entity_camera_data_t;
+
+typedef struct
+{
     sfTexture *texture;
     sfSprite *sprite;
     sfIntRect rect;

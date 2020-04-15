@@ -9,6 +9,7 @@
 #include "entities_data.h"
 #include "entity.h"
 #include "random.h"
+#include "scene.h"
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/Image.h>
 #include <SFML/Graphics/RenderWindow.h>
@@ -19,11 +20,10 @@
 static void init(entity_t *self, engine_t *engine)
 {
     IDATA(rain);
-    sfVector2u win_size = sfRenderWindow_getSize(engine->win);
 
     for (int i = 0; i < RAIN_DROPS; i++) {
-        data->drops[i].x = snr_rand(0, win_size.x);
-        data->drops[i].y = snr_rand(0, win_size.y);
+        data->drops[i].x = snr_rand(0, 10000000.0);
+        data->drops[i].y = snr_rand(0, 10000000.0);
     }
     self->data = data;
 }
@@ -31,10 +31,12 @@ static void init(entity_t *self, engine_t *engine)
 static void update(entity_t *self, engine_t *engine)
 {
     DATA(rain);
+    entity_camera_data_t *c_data
+    = snr_scene_get_entity(engine->sm->scene, "Camera")->data;
 
     for (int i = 0; i < RAIN_DROPS; i++) {
-        data->drops[i].y += engine->dt->val * 200;
-        data->drops[i].x += engine->dt->val * 25;
+        data->drops[i].y += engine->dt->val * 220 - c_data->delta.y;
+        data->drops[i].x += engine->dt->val * 25 - c_data->delta.x;
     }
 }
 
