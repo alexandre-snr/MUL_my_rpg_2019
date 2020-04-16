@@ -19,8 +19,11 @@ void load_inventory(map_change_t *map_change)
 {
     char *path = get_current_slot();
     inventory_t inv = map_change->inv;
-    int *nb[] = {&inv.health, &inv.mana, &inv.level, &inv.xp, &inv.strength,
-    &inv.intelligence, &inv.defense, &inv.health_potions};
+    int *nb[] = {&inv.health, &inv.mana,
+    &inv.level, &inv.xp, &inv.strength,
+    &inv.intelligence, &inv.defense, &inv.magic_defense,
+    &inv.ws_strength, &inv.ws_intelligence, &inv.ws_defense,
+    &inv.ws_magic_defense, &inv.health_potions};
     ini_t *ini = snr_ini_load(path);
 
     for (int i = 0; i < MAX; i++) {
