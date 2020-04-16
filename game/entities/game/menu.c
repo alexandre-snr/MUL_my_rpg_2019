@@ -72,7 +72,8 @@ static void draw(entity_t *self, engine_t *engine)
     sfSprite_setPosition(data->sprite_selected,
     snr_create_vector2f(win_size.x - 385,
     40 + 50 * (data->entry_selected - scroll)));
-    sfRenderWindow_drawSprite(engine->win, data->sprite_selected, NULL);
+    if (data->entry_selected > 0)
+        sfRenderWindow_drawSprite(engine->win, data->sprite_selected, NULL);
     for (int i = scroll; data->entries[i] && i < 9 + scroll; i++) {
         sfText_setString(data->text, data->entries[i]->text);
         sfText_setPosition(data->text,

@@ -15,16 +15,21 @@
 #include <SFML/Window/Keyboard.h>
 #include <stdlib.h>
 
+static void move_selector(entity_menu_data_t *data, engine_t *engine)
+{
+    if (sfKeyboard_isKeyPressed(sfKeyDown) && !data->last_key_down)
+        data->entry_selected++;
+    if (sfKeyboard_isKeyPressed(sfKeyUp) && !data->last_key_up)
+        data->entry_selected--;
+}
 
 static void handle_selector(entity_menu_data_t *data, engine_t *engine)
 {
     int old_selected = data->entry_selected;
 
-    if (sfKeyboard_isKeyPressed(sfKeyDown) && !data->last_key_down)
-        data->entry_selected++;
-    if (sfKeyboard_isKeyPressed(sfKeyUp) && !data->last_key_up)
-        data->entry_selected--;
+    move_selector(data, engine);
     if (sfKeyboard_isKeyPressed(sfKeyReturn) && !data->last_key_enter
+    && data->entry_selected > 0
     && data->entries[data->entry_selected]->callback != NULL) {
         data->entries[data->entry_selected]->callback(engine);
         data->entry_selected = old_selected;
@@ -36,6 +41,8 @@ static void handle_selector(entity_menu_data_t *data, engine_t *engine)
         data->entry_selected = 1;
     else if (data->entry_selected > data->entries_count - 1)
         data->entry_selected = data->entries_count - 1;
+    if (data->entries[1] == NULL)
+        data->entry_selected = 0;
 }
 
 void menu_update(entity_t *self, engine_t *engine)
