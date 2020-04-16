@@ -17,6 +17,7 @@ static void init(entity_t *self, engine_t *engine)
 
     data->dt_save = 0;
     self->data = data;
+    save(engine);
 }
 
 static void update(entity_t *self, engine_t *engine)

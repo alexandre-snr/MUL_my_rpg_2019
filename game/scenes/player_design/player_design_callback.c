@@ -56,7 +56,10 @@ void on_next_click(engine_t *engine)
     entity_preview_props_t *props = snr_scene_get_entity(engine->sm->scene, 
     "Preview")->props;
 
-    props->number++;
+    if (props->number == 3)
+        props->number = 0;
+    else
+        props->number++;
 }
 
 void on_previous_click(engine_t *engine)
@@ -66,5 +69,6 @@ void on_previous_click(engine_t *engine)
 
     if (!props->number)
         props->number = 3;
-    props->number--;
+    else
+        props->number--;
 }
