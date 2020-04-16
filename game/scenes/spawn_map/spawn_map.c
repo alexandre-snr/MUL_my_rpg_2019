@@ -12,6 +12,7 @@
 #include "entities.h"
 #include "string_utils.h"
 #include "string_convert.h"
+#include "save.h"
 #include <SFML/Graphics.h>
 
 static void add_entity(scene_t *scn)
