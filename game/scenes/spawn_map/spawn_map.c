@@ -18,9 +18,7 @@ static void add_entity(scene_t *scn)
 {
     sfVector2f pos = {100, 100};
     sfFloatRect coll = {100, 110, 36, 22};
-    ini_t *current = snr_ini_load("game/assets/configs/save/current_slot.ini");
-    char *path = *snr_ini_get(current, "current", "slot");
-    ini_t *ini = snr_ini_load(path);
+    ini_t *ini = snr_ini_load(get_current_slot());
     char *player_path = my_strdup(*snr_ini_get(ini, "skin", "path"));
 
     snr_scene_add_entity(scn, NULL, create_camera(), "Camera");
@@ -32,7 +30,6 @@ static void add_entity(scene_t *scn)
     snr_scene_add_entity(scn, NULL,
     create_obstacle("game/assets/sprites/obstacles/trunk.png", &pos, &coll),
     "Obstacle Test");
-    snr_ini_free(current);
     snr_ini_free(ini);
 }
 

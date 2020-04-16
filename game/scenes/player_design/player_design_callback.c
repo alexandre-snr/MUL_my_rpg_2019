@@ -14,11 +14,9 @@
 #include "string_utils.h"
 #include "save.h"
 
-static void init(map_change_t *map_change, ini_t *ini)
+static void init(map_change_t *map_change, ini_t *ini, engine_t * engine)
 {
     inventory_t inv  = map_change->inv;
-    int *save[] = {&inv.health, &inv.mana, &inv.level, &inv.xp, &inv.strength,
-    &inv.intelligence, &inv.defense, &inv.health_potions};
 
     inv.health_potions = 10;
     inv.health = 100;
@@ -28,10 +26,11 @@ static void init(map_change_t *map_change, ini_t *ini)
     inv.strength = 1;
     inv.intelligence = 1;
     inv.defense = 1;
-    for (int i = 0; i < MAX; i++) {
-        snr_ini_set(ini, "items", i != 0 ? itos(i, 0) : my_strdup("0"),
-        *save[i] != 0 ? itos(*save[i], 0) : my_strdup("0"));
-    }
+    inv.magic_defense = 0;
+    inv.ws_strength = 0;
+    inv.ws_magic_defense = 0;
+    inv.ws_intelligence = 0;
+    inv.ws_defense = 0;
     map_change->inv = inv;
 }
 
@@ -46,7 +45,7 @@ void on_start_click(engine_t *engine)
     char *path = my_strdup(data->path_game[props->number % 4]);
 
     snr_ini_set(ini, "skin", "path", path);
-    init(map_change, ini);
+    init(map_change, ini, engine);
     snr_ini_save(ini);
     snr_ini_free(ini);
     load_map(engine, map_change);
