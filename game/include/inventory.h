@@ -18,6 +18,7 @@ typedef struct
     int strength;
     int intelligence;
     int defense;
+    int magic_defense;
     int health_potions;
 } inventory_t;
 
@@ -30,6 +31,7 @@ typedef enum
     STAT_STRENGTH,
     STAT_INTELLIGENCE,
     STAT_DEFENSE,
+    STAT_MAGIC_DEFENSE,
     HEALTH_POTION,
     MAX
 } item_e;
