@@ -9,6 +9,7 @@
 
 #include "map_change.h"
 #include "inventory.h"
+#include "npc.h"
 #include <SFML/Audio/SoundBuffer.h>
 #include <SFML/Graphics.h>
 
@@ -130,3 +131,35 @@ typedef struct
 {
     double dt_save;
 } entity_autosave_data_t;
+
+typedef struct
+{
+    char **(*handler)(engine_t *);
+} entity_menu_talk_props_t;
+
+typedef struct
+{
+    int page;
+    int total;
+    int is_finish;
+    double dt_time;
+    char **conv;
+    sfTexture *texture;
+    sfSprite *sprite;
+    sfFont *font;
+    sfText **text;
+} entity_menu_talk_data_t;
+
+typedef struct
+{
+    npc_e npc_type;
+    sfVector2f *pos;
+} entity_npc_props_t;
+
+typedef struct
+{
+    int create;
+    sfFloatRect rect;
+    sfSprite *sprite;
+    sfTexture *texture;
+} entity_npc_data_t;

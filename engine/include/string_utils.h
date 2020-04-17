@@ -13,3 +13,4 @@ char *my_strdup(char const *);
 char *my_strbegin(char const *, int);
 char *my_revstr(char *);
 char *my_strcat(char const *dest, char const *src);
+int my_arrlen(char **arr);

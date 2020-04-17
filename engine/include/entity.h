@@ -8,10 +8,12 @@
 #pragma once
 
 #include <SFML/Graphics/RenderWindow.h>
+#include <stdlib.h>
 
 #define DATA(X) entity_##X##_data_t *data = (entity_##X##_data_t *) self->data
 #define IDATA(X) entity_##X##_data_t *data = malloc(sizeof(entity_##X##_data_t))
 #define PR(X) entity_##X##_props_t *props = (entity_##X##_props_t *) self->props
+#define IPR(X) entity_##X##_props_t *pr = malloc(sizeof(entity_##X##_props_t))
 
 typedef struct engine engine_t;
 

@@ -32,3 +32,6 @@ void open_stats(engine_t *engine);
 void open_menu(engine_t *engine, menu_entry_t **entries);
 entity_t *create_reset_view(void);
 entity_t *create_autosave(void);
+void init_talk(entity_t *self, engine_t *engine, int total);
+entity_t *create_menu_talk(char **(*handler)(engine_t *));
+entity_t *create_npc(npc_e npc_type, sfVector2f pos);
