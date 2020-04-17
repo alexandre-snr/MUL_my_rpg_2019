@@ -53,6 +53,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/player_movement.c					\
 			game/entities/game/player.c								\
 			game/entities/game/warp.c								\
+			game/entities/game/menu_shop.c							\
 			game/entities/chara_design/chara_preview.c				\
 			game/entities/game/menu.c								\
 			game/entities/game/menu_update.c						\
@@ -81,7 +82,8 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/spawn_map/spawn_map.c						\
 			game/scenes/player_design/player_design.c				\
 			game/scenes/player_design/player_design_callback.c		\
-			game/npc_talk/default_talk.c
+			game/npc_talk/default_talk.c							\
+			game/shop/buy.c
 
 OBJ		=	$(SRC:.c=.o)
 

@@ -16,7 +16,8 @@ static void init(entity_t *self, engine_t *engine)
 {
     IDATA(menu_talk);
     PR(menu_talk);
-    sfVector2f pos = {1280 / 2 - 300, 766 - 110};
+    sfVector2u win_size = sfRenderWindow_getSize(engine->win);
+    sfVector2f pos = {win_size.x / 2 - 300, win_size.y - 110};
     char **(*handler)(engine_t *) = props->handler;
 
     data->conv = handler(engine);
@@ -77,7 +78,7 @@ static void destroy(entity_t *self, engine_t *engine)
     sfFont_destroy(data->font);
 }
 
-entity_t *create_menu_talk(char **(*handler)(engine_t *))
+entity_t *create_menu_talk(char **(*handler)(engine_t *), char *name)
 {
     entity_t *ent = snr_entity_create();
     IPR(menu_talk);

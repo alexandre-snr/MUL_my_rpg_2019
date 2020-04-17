@@ -44,8 +44,8 @@ static void destroy(entity_t *self, engine_t *engine)
     DATA(obstacle);
 
     if (data->sprite != NULL) {
-       sfSprite_destroy(data->sprite);
-       sfTexture_destroy(data->texture);
+        sfSprite_destroy(data->sprite);
+        sfTexture_destroy(data->texture);
     }
 }
 

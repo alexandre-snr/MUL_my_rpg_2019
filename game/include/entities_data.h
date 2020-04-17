@@ -135,6 +135,7 @@ typedef struct
 typedef struct
 {
     char **(*handler)(engine_t *);
+    char *name;
 } entity_menu_talk_props_t;
 
 typedef struct
@@ -148,12 +149,14 @@ typedef struct
     sfSprite *sprite;
     sfFont *font;
     sfText **text;
+    sfText *name;
 } entity_menu_talk_data_t;
 
 typedef struct
 {
     npc_e npc_type;
     sfVector2f *pos;
+    char *name;
 } entity_npc_props_t;
 
 typedef struct
