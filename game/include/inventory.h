@@ -44,10 +44,16 @@ typedef enum
     MAX
 } item_e;
 
+typedef enum
+{
+    STAT,
+    OBJECT
+} item_type_e;
+
 int *extract_from_inventory(inventory_t *inv, item_e item);
 int *get_inventory_item(engine_t *engine, item_e item);
-int is_inventory_item_player_stat(item_e item);
-char const *get_inventory_item_name(item_e item);
+item_type_e get_inventory_item_type(item_e item);
+char *get_inventory_item_name(item_e item);
 void *get_inventory_item_use(item_e item);
 
 void health_potion_use(engine_t *engine);
