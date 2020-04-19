@@ -7,6 +7,8 @@
 
 #include <stdlib.h>
 #include "engine.h"
+#include "inventory.h"
+#include "map_change.h"
 #include "scenes.h"
 #include "ini.h"
 #include "entities_data.h"
@@ -16,22 +18,17 @@
 
 static void init(map_change_t *map_change, ini_t *ini, engine_t * engine)
 {
-    inventory_t inv  = map_change->inv;
+    inventory_t *inv  = &(map_change->inv);
 
-    inv.health_potions = 10;
-    inv.health = 100;
-    inv.mana = 100;
-    inv.level = 1;
-    inv.xp = 0;
-    inv.strength = 1;
-    inv.intelligence = 1;
-    inv.defense = 1;
-    inv.magic_defense = 0;
-    inv.ws_strength = 0;
-    inv.ws_magic_defense = 0;
-    inv.ws_intelligence = 0;
-    inv.ws_defense = 0;
-    map_change->inv = inv;
+    for (item_e i = 0; i < MAX; i++)
+        *(extract_from_inventory(inv, i)) = 0;
+    inv->health = 100;
+    inv->mana = 100;
+    inv->level = 1;
+    map_change->player_pos.x = 20;
+    map_change->player_pos.y = 20;
+    map_change->map = SPAWN_MAP;
+    map_change->selected_quest = -1;
 }
 
 void on_start_click(engine_t *engine)

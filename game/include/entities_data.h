@@ -61,6 +61,7 @@ typedef struct
     sfSprite *sprite;
     sfIntRect rect;
     sfVector2f pos;
+    int selected_quest;
     inventory_t inv;
 } entity_player_data_t;
 
