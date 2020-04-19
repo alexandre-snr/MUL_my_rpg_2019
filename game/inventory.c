@@ -8,6 +8,10 @@
 #include "inventory.h"
 #include "entities_data.h"
 #include "scene.h"
+#include "string_utils.h"
+#include "string_convert.h"
+#include "ini.h"
+#include <stdlib.h>
 
 int *extract_from_inventory(inventory_t *inv, item_e item)
 {
@@ -39,12 +43,13 @@ int is_inventory_item_player_stat(item_e item)
 
 char const *get_inventory_item_name(item_e item)
 {
-    char const *results[] = {"Vie", "Mana", "Niveau", "Experience", "Force",
-    "Intelligence", "Defense", "Defense magique", "Force (arme)",
-    "Intelligence (arme)", "Defense (armure)", "Defense magique (armure)",
-    "Potion de vie"};
+    ini_t *ini = snr_ini_load("game/assets/configs/items.ini");
+    char *name = item != 0 ? itos(item, 0) : my_strdup("0");
+    char *result = my_strdup(*snr_ini_get(ini, name, "name"));
 
-    return (results[item]);
+    snr_ini_free(ini);
+    free(name);
+    return (result);
 }
 
 void *get_inventory_item_use(item_e item)
