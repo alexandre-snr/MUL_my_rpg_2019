@@ -24,6 +24,7 @@ typedef struct
     int ws_defense;
     int ws_magic_defense;
     int health_potions;
+    int quest_hello;
 } inventory_t;
 
 typedef enum
@@ -41,13 +42,15 @@ typedef enum
     WSTAT_DEFENSE,
     WSTAT_MAGIC_DEFENSE,
     HEALTH_POTION,
+    QUEST_HELLO,
     MAX
 } item_e;
 
 typedef enum
 {
     STAT,
-    OBJECT
+    OBJECT,
+    QUEST
 } item_type_e;
 
 int *extract_from_inventory(inventory_t *inv, item_e item);

@@ -32,7 +32,7 @@ item_type_e get_inventory_item_type(item_e item)
     ini_t *ini = snr_ini_load("game/assets/configs/items.ini");
     char *name = item != 0 ? itos(item, 0) : my_strdup("0");
     char *type = *snr_ini_get(ini, name, "type");
-    char *triggers[] = {"Stat", "Object", NULL};
+    char *triggers[] = {"Stat", "Object", "Quest", NULL};
     int result = 0;
 
     for (int i = 0; triggers[i]; i++) {
