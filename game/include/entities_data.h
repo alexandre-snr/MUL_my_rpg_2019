@@ -151,4 +151,8 @@ typedef struct
     sfSprite *sprite_panel;
     int shown;
     int last_pressed;
+    int loaded_quest;
+    sfFont *fnt;
+    sfText **texts;
+    char **dialogs;
 } entity_current_quest_data_t;
