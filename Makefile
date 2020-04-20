@@ -43,6 +43,7 @@ SRC		=	engine/core/engine.c									\
 			game/main.c												\
 			game/map_change.c										\
 			game/inventory.c										\
+			game/quests.c											\
 			game/items/health_potion.c								\
 			game/entities/splashscreen/sound.c						\
 			game/entities/splashscreen/video.c						\

@@ -10,6 +10,7 @@
 #include "entities_data.h"
 #include "menu.h"
 #include "inventory.h"
+#include "quests.h"
 #include "scene.h"
 #include "string_utils.h"
 #include "string_convert.h"
@@ -19,8 +20,6 @@ static void open_quest_details(engine_t *engine)
 {
     entity_menu_data_t *m_data =
     snr_scene_get_entity(engine->sm->scene, "Menu")->data;
-
-    printf("show %d\n", m_data->entry_selected);
 }
 
 static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)
@@ -28,7 +27,8 @@ static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)
     menu_entry_t *entry;
     int *item_count = get_inventory_item(eng, item);
 
-    if (*item_count == 0 || get_inventory_item_type(item) != QUEST)
+    if (*item_count == 0 || get_inventory_item_type(item) != QUEST ||
+   is_quest_over(eng, item))
         return;
     entry = malloc(sizeof(menu_entry_t));
     entry->text = get_inventory_item_name(item);
