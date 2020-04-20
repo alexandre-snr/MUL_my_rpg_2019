@@ -34,3 +34,4 @@ void open_menu(engine_t *engine, menu_entry_t **entries);
 entity_t *create_reset_view(void);
 entity_t *create_autosave(void);
 entity_t *create_rain(void);
+entity_t *create_current_quest(void);

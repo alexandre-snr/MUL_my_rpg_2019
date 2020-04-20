@@ -50,5 +50,6 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
     snr_scene_add_entity(scn, NULL, create_rain(), "Rain");
     snr_scene_add_entity(scn, NULL, create_menu(), "Menu");
     snr_scene_add_entity(scn, NULL, create_autosave(), "Autosave");
+    snr_scene_add_entity(scn, NULL, create_current_quest(), "CQ");
     return (scn);
 }

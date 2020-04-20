@@ -144,3 +144,11 @@ typedef struct
 {
     sfVector2f drops[RAIN_DROPS];
 } entity_rain_data_t;
+
+typedef struct
+{
+    sfTexture *texture_panel;
+    sfSprite *sprite_panel;
+    int shown;
+    int last_pressed;
+} entity_current_quest_data_t;

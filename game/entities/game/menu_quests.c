@@ -22,8 +22,11 @@ static void open_quest_details(engine_t *engine)
     snr_scene_get_entity(engine->sm->scene, "Menu")->data;
     entity_player_data_t *p_data =
     snr_scene_get_entity(engine->sm->scene, "Player")->data;
+    entity_current_quest_data_t *q_data =
+    snr_scene_get_entity(engine->sm->scene, "CQ")->data;
 
     p_data->selected_quest = m_data->entries[m_data->entry_selected]->data;
+    q_data->shown = 1;
 }
 
 static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)

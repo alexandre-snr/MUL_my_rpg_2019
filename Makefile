@@ -68,6 +68,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/get_current_slot.c					\
 			game/entities/game/save.c								\
 			game/entities/game/autosave.c							\
+			game/entities/game/current_quest.c						\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\
