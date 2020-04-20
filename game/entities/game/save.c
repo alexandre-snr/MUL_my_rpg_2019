@@ -42,6 +42,8 @@ static void save_position(engine_t *engine, ini_t *ini)
     data->pos.y != 0 ? itos(data->pos.y, 0) : my_strdup("0"));
     snr_ini_set(ini, "position", "map",
     map->map != 0 ? itos(map->map, 0) : my_strdup("0"));
+    snr_ini_set(ini, "status", "quest",
+    data->selected_quest != 0 ? itos(data->selected_quest, 0) : "0");
 }
 
 void save(engine_t *engine)
@@ -50,6 +52,7 @@ void save(engine_t *engine)
     ini_t *ini = snr_ini_load(path);
     int **number = malloc(sizeof(int *) * 50);
 
+    snr_ini_set(ini, "status", "stat", "1");
     for (int i = 0; i < MAX; i++) {
         number[i] = get_inventory_item(engine, i);
         snr_ini_set(ini, "items", i != 0 ? itos(i, 0) : my_strdup("0"),

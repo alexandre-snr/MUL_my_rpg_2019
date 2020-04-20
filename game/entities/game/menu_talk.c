@@ -59,7 +59,7 @@ static void update(entity_t *self, engine_t *engine)
         npc_data->create = 0;
         return;
     }
-    if (sfKeyboard_isKeyPressed(sfKeyEnter) && data->dt_time >= 0.5f &&
+    if (sfKeyboard_isKeyPressed(sfKeyReturn) && data->dt_time >= 0.5f &&
     !data->is_finish) {
         data->page += 3;
         data->dt_time = 0;

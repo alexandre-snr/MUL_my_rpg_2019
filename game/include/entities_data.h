@@ -62,6 +62,7 @@ typedef struct
     sfSprite *sprite;
     sfIntRect rect;
     sfVector2f pos;
+    int selected_quest;
     inventory_t inv;
 } entity_player_data_t;
 
@@ -115,6 +116,7 @@ typedef struct
 {
     char *text;
     void (*callback)(engine_t *);
+    int data;
 } menu_entry_t;
 
 typedef struct
@@ -143,6 +145,7 @@ typedef struct
 {
     sfVector2f drops[RAIN_DROPS];
 } entity_rain_data_t;
+
 typedef struct
 {
     char **(*handler)(engine_t *);
@@ -177,3 +180,15 @@ typedef struct
     sfSprite *sprite;
     sfTexture *texture;
 } entity_npc_data_t;
+
+typedef struct
+{
+    sfTexture *texture_panel;
+    sfSprite *sprite_panel;
+    int shown;
+    int last_pressed;
+    int loaded_quest;
+    sfFont *fnt;
+    sfText **texts;
+    char **dialogs;
+} entity_current_quest_data_t;
