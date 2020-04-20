@@ -154,6 +154,7 @@ typedef struct
     int page;
     int total;
     int is_finish;
+    int is_open;
     double dt_time;
     char **conv;
     sfTexture *texture;
@@ -172,7 +173,6 @@ typedef struct
 
 typedef struct
 {
-    int create;
     sfFloatRect rect;
     sfSprite *sprite;
     sfTexture *texture;

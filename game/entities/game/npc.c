@@ -17,7 +17,9 @@ static void init(entity_t *self, engine_t *engine)
 {
     IDATA(npc);
     PR(npc);
-    char *path[] = {"game/assets/sprites/npc/test.png", NULL};
+    char *path[] = {"game/assets/sprites/npc/men.png",
+    "game/assets/sprites/npc/women.png",
+    "game/assets/sprites/npc/dealer.png",NULL};
     sfFloatRect coll;
 
     data->sprite = sfSprite_create();
@@ -25,7 +27,6 @@ static void init(entity_t *self, engine_t *engine)
     data->rect.top = props->pos.y + 20;
     data->rect.height = 20;
     data->rect.width = 20;
-    data->create = 0;
     coll = snr_create_floatrect(props->pos.x, props->pos.y, 20, 20);
     add_collider(engine, &coll);
     data->texture = sfTexture_createFromFile(path[props->npc_type], NULL);
@@ -44,13 +45,12 @@ static void update(entity_t *self, engine_t *engine)
     {data_player->pos.x, data_player->pos.y + 20, 20, 20};
 
     if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
-    sfKeyboard_isKeyPressed(sfKeyE) && !data->create &&
-    props->npc_type == DEALER) {
+    sfKeyboard_isKeyPressed(sfKeyE) && props->npc_type == DEALER) {
         open_menu_deal(engine);
-    } else if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
-    sfKeyboard_isKeyPressed(sfKeyE) && !data->create)
-        snr_scene_add_entity(engine->sm->scene, engine, 
-        create_menu_talk(default_talk, props->name), my_strdup("Talk"));
+    } else if (
+        sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
+    sfKeyboard_isKeyPressed(sfKeyE))
+        open_talk(engine);
 }
 
 static void draw(entity_t *self, engine_t *engine)
@@ -72,5 +72,6 @@ entity_t *create_npc(npc_e npc_type, sfVector2f pos, char *name)
     ent->init = init;
     ent->draw = draw;
     ent->update = update;
+    ent->depth = 5000 + pos.y;
     return (ent);
 }

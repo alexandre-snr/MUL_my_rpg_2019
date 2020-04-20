@@ -24,6 +24,7 @@ static void init(entity_t *self, engine_t *engine)
     data->total = my_arrlen(data->conv);
     data->text = malloc(sizeof(sfText *) * (data->total + 1));
     data->is_finish = 0;
+    data->is_open = 0;
     data->texture = sfTexture_createFromFile("game/assets/ui/panel_beige.png",
     NULL);
     data->sprite = sfSprite_create();
@@ -38,25 +39,24 @@ static void draw(entity_t *self, engine_t *engine)
 {
     DATA(menu_talk);
 
-    sfRenderWindow_drawSprite(engine->win, data->sprite, NULL);
-    for (int i = data->page; i < data->page + 3; i++) {
-        if (i < data->total)
-            sfRenderWindow_drawText(engine->win, data->text[i], NULL);
+    if (data->is_open) {
+        sfRenderWindow_drawSprite(engine->win, data->sprite, NULL);
+        for (int i = data->page; i < data->page + 3; i++) {
+            if (i < data->total)
+                sfRenderWindow_drawText(engine->win, data->text[i], NULL);
+        }
     }
 }
 
 static void update(entity_t *self, engine_t *engine)
 {
     DATA(menu_talk);
-    entity_npc_data_t *npc_data =
-    snr_scene_get_entity(engine->sm->scene, "Npc")->data;
 
     data->dt_time += engine->dt->val;
     if (data->page >= data->total / 3)
         data->is_finish = 1;
     if (sfKeyboard_isKeyPressed(sfKeyEscape) && data->is_finish) {
-        snr_scene_remove_entity(engine->sm->scene, self->id);
-        npc_data->create = 0;
+        close_talk(engine);
         return;
     }
     if (sfKeyboard_isKeyPressed(sfKeyEnter) && data->dt_time >= 0.5f &&
@@ -91,5 +91,6 @@ entity_t *create_menu_talk(char **(*handler)(engine_t *), char *name)
     ent->update = update;
     ent->draw = draw;
     ent->destroy = destroy;
+    ent->depth = 10100;
     return (ent);
 }

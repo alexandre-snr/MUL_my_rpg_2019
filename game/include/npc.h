@@ -10,8 +10,8 @@
 #include "engine.h"
 
 typedef enum {
-    VILLAGERS_MALE,
-    VILLAGERS_FEMALE,
+    VILLAGERS_MAN,
+    VILLAGERS_WOMAN,
     DEALER
 } npc_e;
 

@@ -36,3 +36,5 @@ entity_t *create_rain(void);
 void init_talk(entity_t *self, engine_t *engine, int total);
 entity_t *create_menu_talk(char **(*handler)(engine_t *), char *name);
 entity_t *create_npc(npc_e npc_type, sfVector2f pos, char *name);
+void close_talk(engine_t *engine);
+void open_talk(engine_t *engine);
