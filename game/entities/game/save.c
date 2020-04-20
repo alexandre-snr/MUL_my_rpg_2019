@@ -50,6 +50,7 @@ void save(engine_t *engine)
     ini_t *ini = snr_ini_load(path);
     int **number = malloc(sizeof(int *) * 50);
 
+    snr_ini_set(ini, "status", "stat", "1");
     for (int i = 0; i < MAX; i++) {
         number[i] = get_inventory_item(engine, i);
         snr_ini_set(ini, "items", i != 0 ? itos(i, 0) : my_strdup("0"),
