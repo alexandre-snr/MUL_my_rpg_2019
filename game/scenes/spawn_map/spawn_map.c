@@ -34,7 +34,6 @@ static void add_entity(scene_t *scn)
     snr_ini_free(ini);
 }
 
-
 scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
 {
     scene_t *scn = snr_scene_create("Spawn Map");
@@ -47,13 +46,19 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
     add_entity(scn);
     snr_scene_add_entity(scn, NULL,
     create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
+<<<<<<< HEAD
     snr_scene_add_entity(scn, NULL, create_npc(2, npc_pos, "Monsieur Truc"),
     "Npc");
     snr_scene_add_entity(scn, engine, create_menu_talk(default_talk, "menu"),
     "Talk");
+=======
+    snr_scene_add_entity(scn, NULL,
+    create_npc(0, npc_pos, "Monsieur Truc"), "Npc");
+>>>>>>> e47cfe10d1da0fa7fcf9b3cf6068baa0f78125bd
     snr_scene_add_entity(scn, NULL, create_reset_view(), "Rs");
     snr_scene_add_entity(scn, NULL, create_rain(), "Rain");
     snr_scene_add_entity(scn, NULL, create_menu(), "Menu");
     snr_scene_add_entity(scn, NULL, create_autosave(), "Autosave");
+    snr_scene_add_entity(scn, NULL, create_current_quest(), "CQ");
     return (scn);
 }

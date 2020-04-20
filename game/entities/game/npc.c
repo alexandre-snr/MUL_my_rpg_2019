@@ -47,10 +47,17 @@ static void update(entity_t *self, engine_t *engine)
     if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
     sfKeyboard_isKeyPressed(sfKeyE) && props->npc_type == DEALER) {
         open_menu_deal(engine);
+<<<<<<< HEAD
     } else if (
         sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
     sfKeyboard_isKeyPressed(sfKeyE))
         open_talk(engine);
+=======
+    } else if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
+    sfKeyboard_isKeyPressed(sfKeyE) && !data->create)
+        snr_scene_add_entity(engine->sm->scene, engine,
+        create_menu_talk(default_talk, props->name), my_strdup("Talk"));
+>>>>>>> e47cfe10d1da0fa7fcf9b3cf6068baa0f78125bd
 }
 
 static void draw(entity_t *self, engine_t *engine)

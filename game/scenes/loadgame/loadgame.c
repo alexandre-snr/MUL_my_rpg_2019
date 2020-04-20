@@ -19,7 +19,7 @@ static char **create_labels(void)
 {
     char **labels = malloc(sizeof(char *) * 5);
     ini_t *ini[] = {snr_ini_load("game/assets/configs/save/slot1.ini"),
-    snr_ini_load("game/assets/configs/save/slot2.ini"), 
+    snr_ini_load("game/assets/configs/save/slot2.ini"),
     snr_ini_load("game/assets/configs/save/slot3.ini")};
 
     labels[4] = NULL;

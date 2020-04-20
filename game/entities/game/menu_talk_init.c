@@ -9,7 +9,7 @@
 #include "entities_data.h"
 #include "vector_helper.h"
 
-static void init_talk2(entity_t *self, engine_t *engine ,int total)
+static void init_talk2(entity_t *self, engine_t *engine, int total)
 {
     DATA(menu_talk);
 

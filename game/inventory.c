@@ -8,6 +8,10 @@
 #include "inventory.h"
 #include "entities_data.h"
 #include "scene.h"
+#include "string_utils.h"
+#include "string_convert.h"
+#include "ini.h"
+#include <stdlib.h>
 
 int *extract_from_inventory(inventory_t *inv, item_e item)
 {
@@ -23,28 +27,32 @@ int *get_inventory_item(engine_t *engine, item_e item)
     return (extract_from_inventory(inv, item));
 }
 
-int is_inventory_item_player_stat(item_e item)
+item_type_e get_inventory_item_type(item_e item)
 {
-    item_e triggers[] = {STAT_HEALTH, STAT_MANA, STAT_LEVEL, STAT_XP,
-    STAT_STRENGTH, STAT_INTELLIGENCE, STAT_DEFENSE, STAT_MAGIC_DEFENSE,
-    WSTAT_STRENGTH, WSTAT_INTELLIGENCE, WSTAT_DEFENSE, WSTAT_MAGIC_DEFENSE,
-    MAX};
+    ini_t *ini = snr_ini_load("game/assets/configs/items.ini");
+    char *name = item != 0 ? itos(item, 0) : my_strdup("0");
+    char *type = *snr_ini_get(ini, name, "type");
+    char *triggers[] = {"Stat", "Object", "Quest", NULL};
+    int result = 0;
 
-    for (int i = 0; triggers[i] != MAX; i++)
-        if (triggers[i] == item)
-            return (1);
-    return (0);
-
+    for (int i = 0; triggers[i]; i++) {
+        if (my_streq(triggers[i], type))
+            result = i;
+    }
+    snr_ini_free(ini);
+    free(name);
+    return (result);
 }
 
-char const *get_inventory_item_name(item_e item)
+char *get_inventory_item_name(item_e item)
 {
-    char const *results[] = {"Vie", "Mana", "Niveau", "Experience", "Force",
-    "Intelligence", "Defense", "Defense magique", "Force (arme)",
-    "Intelligence (arme)", "Defense (armure)", "Defense magique (armure)",
-    "Potion de vie"};
+    ini_t *ini = snr_ini_load("game/assets/configs/items.ini");
+    char *name = item != 0 ? itos(item, 0) : my_strdup("0");
+    char *result = my_strdup(*snr_ini_get(ini, name, "name"));
 
-    return (results[item]);
+    snr_ini_free(ini);
+    free(name);
+    return (result);
 }
 
 void *get_inventory_item_use(item_e item)

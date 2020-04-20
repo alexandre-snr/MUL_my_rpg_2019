@@ -22,6 +22,7 @@ typedef struct
     sfVector2f player_pos;
     maps_e map;
     inventory_t inv;
+    int selected_quest;
 } map_change_t;
 
 void load_map(engine_t *engine, map_change_t *map_change);

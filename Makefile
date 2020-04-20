@@ -43,6 +43,7 @@ SRC		=	engine/core/engine.c									\
 			game/main.c												\
 			game/map_change.c										\
 			game/inventory.c										\
+			game/quests.c											\
 			game/items/health_potion.c								\
 			game/entities/splashscreen/sound.c						\
 			game/entities/splashscreen/video.c						\
@@ -62,6 +63,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/menu_main.c							\
 			game/entities/game/menu_inventory.c						\
 			game/entities/game/menu_stats.c							\
+			game/entities/game/menu_quests.c						\
 			game/entities/game/menu_entries.c						\
 			game/entities/game/menu_talk.c							\
 			game/entities/game/menu_talk_init.c						\
@@ -71,6 +73,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/save.c								\
 			game/entities/game/autosave.c							\
 			game/entities/game/npc.c								\
+			game/entities/game/current_quest.c						\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\

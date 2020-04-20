@@ -29,6 +29,7 @@ void open_main_menu(engine_t *engine, int bypass_key);
 void close_menu(engine_t *engine);
 void open_inventory(engine_t *engine);
 void open_stats(engine_t *engine);
+void open_quests(engine_t *engine);
 void open_menu(engine_t *engine, menu_entry_t **entries);
 entity_t *create_reset_view(void);
 entity_t *create_autosave(void);
@@ -36,5 +37,9 @@ entity_t *create_rain(void);
 void init_talk(entity_t *self, engine_t *engine, int total);
 entity_t *create_menu_talk(char **(*handler)(engine_t *), char *name);
 entity_t *create_npc(npc_e npc_type, sfVector2f pos, char *name);
+<<<<<<< HEAD
 void close_talk(engine_t *engine);
 void open_talk(engine_t *engine);
+=======
+entity_t *create_current_quest(void);
+>>>>>>> e47cfe10d1da0fa7fcf9b3cf6068baa0f78125bd

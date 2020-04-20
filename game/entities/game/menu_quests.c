@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** MUL_my_rpg_2019
 ** File description:
-** menu_stats
+** menu_quests
 */
 
 #include "engine.h"
@@ -10,33 +10,48 @@
 #include "entities_data.h"
 #include "menu.h"
 #include "inventory.h"
+#include "quests.h"
+#include "scene.h"
 #include "string_utils.h"
 #include "string_convert.h"
 #include <stdlib.h>
+
+static void open_quest_details(engine_t *engine)
+{
+    entity_menu_data_t *m_data =
+    snr_scene_get_entity(engine->sm->scene, "Menu")->data;
+    entity_player_data_t *p_data =
+    snr_scene_get_entity(engine->sm->scene, "Player")->data;
+    entity_current_quest_data_t *q_data =
+    snr_scene_get_entity(engine->sm->scene, "CQ")->data;
+
+    p_data->selected_quest = m_data->entries[m_data->entry_selected]->data;
+    q_data->shown = 1;
+}
 
 static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)
 {
     menu_entry_t *entry;
     int *item_count = get_inventory_item(eng, item);
 
-    if (get_inventory_item_type(item) != STAT)
+    if (*item_count == 0 || get_inventory_item_type(item) != QUEST ||
+    is_quest_over(eng, item))
         return;
     entry = malloc(sizeof(menu_entry_t));
-    entry->text = my_strcat(*item_count == 0 ? "0 " :
-    my_strcat(itos(*item_count, 0), " "),
-    get_inventory_item_name(item));
-    entry->callback = get_inventory_item_use(item);
+    entry->text = get_inventory_item_name(item);
+    entry->callback = open_quest_details;
+    entry->data = item;
     entries[*i] = entry;
     (*i)++;
 }
 
-void open_stats(engine_t *engine)
+void open_quests(engine_t *engine)
 {
     menu_entry_t **entries = malloc(sizeof(menu_entry_t) * 100);
     int i = 0;
 
     entries[i++] = malloc(sizeof(menu_entry_t));
-    entries[0]->text = my_strdup("VOS STATS:");
+    entries[0]->text = my_strdup("VOS QUETES EN COURS:");
     entries[0]->callback = NULL;
     for (int item = 0; item < MAX; item++)
         add_item(engine, entries, &i, item);

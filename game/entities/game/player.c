@@ -30,6 +30,7 @@ static void init(entity_t *self, engine_t *engine)
     data->rect = snr_create_intrect(0, 0, 19, 30);
     sfSprite_setTexture(data->sprite, data->texture, sfFalse);
     data->inv = map_change->inv;
+    data->selected_quest = map_change->selected_quest;
     self->data = data;
 }
 
