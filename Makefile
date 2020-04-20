@@ -55,6 +55,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/player.c								\
 			game/entities/game/warp.c								\
 			game/entities/game/rain.c								\
+			game/entities/game/menu_shop.c							\
 			game/entities/chara_design/chara_preview.c				\
 			game/entities/game/menu.c								\
 			game/entities/game/menu_update.c						\
@@ -62,10 +63,13 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/menu_inventory.c						\
 			game/entities/game/menu_stats.c							\
 			game/entities/game/menu_entries.c						\
+			game/entities/game/menu_talk.c							\
+			game/entities/game/menu_talk_init.c						\
 			game/entities/game/reset_view.c							\
 			game/entities/game/get_current_slot.c					\
 			game/entities/game/save.c								\
 			game/entities/game/autosave.c							\
+			game/entities/game/npc.c								\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\
@@ -79,7 +83,9 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/loadgame/loadgame_callback.c				\
 			game/scenes/spawn_map/spawn_map.c						\
 			game/scenes/player_design/player_design.c				\
-			game/scenes/player_design/player_design_callback.c
+			game/scenes/player_design/player_design_callback.c		\
+			game/npc_talk/default_talk.c							\
+			game/shop/buy.c
 
 OBJ		=	$(SRC:.c=.o)
 

@@ -9,6 +9,7 @@
 
 #include "map_change.h"
 #include "inventory.h"
+#include "npc.h"
 #include <SFML/Audio/SoundBuffer.h>
 #include <SFML/Graphics.h>
 
@@ -142,3 +143,37 @@ typedef struct
 {
     sfVector2f drops[RAIN_DROPS];
 } entity_rain_data_t;
+typedef struct
+{
+    char **(*handler)(engine_t *);
+    char *name;
+} entity_menu_talk_props_t;
+
+typedef struct
+{
+    int page;
+    int total;
+    int is_finish;
+    double dt_time;
+    char **conv;
+    sfTexture *texture;
+    sfSprite *sprite;
+    sfFont *font;
+    sfText **text;
+    sfText *name;
+} entity_menu_talk_data_t;
+
+typedef struct
+{
+    npc_e npc_type;
+    sfVector2f pos;
+    char *name;
+} entity_npc_props_t;
+
+typedef struct
+{
+    int create;
+    sfFloatRect rect;
+    sfSprite *sprite;
+    sfTexture *texture;
+} entity_npc_data_t;

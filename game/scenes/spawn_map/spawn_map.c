@@ -39,12 +39,14 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
     scene_t *scn = snr_scene_create("Spawn Map");
     sfVector2f warp_pos = {600, 600};
     sfFloatRect warp_coll = {0, 0, 16, 1000};
+    sfVector2f npc_pos = {300, 300};
 
     scn->props = map_change;
     scn->should_free_props = 1;
     add_entity(scn);
     snr_scene_add_entity(scn, NULL,
     create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
+    snr_scene_add_entity(scn, NULL, create_npc(0, npc_pos, "Monsieur Truc"), "Npc");
     snr_scene_add_entity(scn, NULL, create_reset_view(), "Rs");
     snr_scene_add_entity(scn, NULL, create_rain(), "Rain");
     snr_scene_add_entity(scn, NULL, create_menu(), "Menu");

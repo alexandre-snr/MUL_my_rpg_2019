@@ -35,3 +35,13 @@ char *my_strcat(char const *dest, char const *src)
     new[i] = '\0';
     return (new);
 }
+
+int my_arrlen(char **arr)
+{
+    int i = 0;
+
+    if (arr == NULL)
+        return (0);
+    for (; arr[i]; ++i);
+    return (i);
+}
