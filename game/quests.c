@@ -27,7 +27,7 @@ char **get_quest_description(engine_t *engine, item_e quest)
     ini_t *ini = snr_ini_load(path);
     int i = 0;
 
-    for(; snr_ini_get(ini, part, i != 0 ? itos(i, 0) : "0"); i++)
+    for (; snr_ini_get(ini, part, i != 0 ? itos(i, 0) : "0"); i++)
         result[i] =
         my_strdup(*snr_ini_get(ini, part, i != 0 ? itos(i, 0) : "0"));
     result[i] = NULL;

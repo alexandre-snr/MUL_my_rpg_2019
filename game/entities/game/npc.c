@@ -49,7 +49,7 @@ static void update(entity_t *self, engine_t *engine)
         open_menu_deal(engine);
     } else if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
     sfKeyboard_isKeyPressed(sfKeyE) && !data->create)
-        snr_scene_add_entity(engine->sm->scene, engine, 
+        snr_scene_add_entity(engine->sm->scene, engine,
         create_menu_talk(default_talk, props->name), my_strdup("Talk"));
 }
 

@@ -55,7 +55,7 @@ static void draw(entity_t *self, engine_t *engine)
 
     sfRenderWindow_drawSprite(engine->win, data->sprite[props->number % 4],
     NULL);
-} 
+}
 
 static void destroy(entity_t *self, engine_t *engine)
 {
