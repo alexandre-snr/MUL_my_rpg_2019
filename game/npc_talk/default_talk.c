@@ -10,10 +10,12 @@
 
 char **default_talk(engine_t *engine)
 {
-    char **conv = malloc(sizeof(char *) * 3);
+    char **conv = malloc(sizeof(char *) * 5);
 
     conv[0] = my_strdup("bonjour\n");
-    conv[1] = my_strdup("salope\n");
-    conv[2] = NULL;
+    conv[1] = my_strdup("toi\n");
+    conv[2] = my_strdup("truc\n");
+    conv[3] = my_strdup("test\n");
+    conv[4] = NULL;
     return (conv);
 }

@@ -155,7 +155,7 @@ typedef struct
 typedef struct
 {
     npc_e npc_type;
-    sfVector2f *pos;
+    sfVector2f pos;
     char *name;
 } entity_npc_props_t;
 

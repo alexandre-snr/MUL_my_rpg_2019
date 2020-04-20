@@ -21,15 +21,15 @@ static void init(entity_t *self, engine_t *engine)
     sfFloatRect coll;
 
     data->sprite = sfSprite_create();
-    data->rect.left = props->pos->x;
-    data->rect.top = props->pos->y + 20;
+    data->rect.left = props->pos.x;
+    data->rect.top = props->pos.y + 20;
     data->rect.height = 20;
     data->rect.width = 20;
     data->create = 0;
-    coll = snr_create_floatrect(props->pos->x, props->pos->y, 20, 20);
+    coll = snr_create_floatrect(props->pos.x, props->pos.y, 20, 20);
     add_collider(engine, &coll);
     data->texture = sfTexture_createFromFile(path[props->npc_type], NULL);
-    sfSprite_setPosition(data->sprite, *props->pos);
+    sfSprite_setPosition(data->sprite, props->pos);
     sfSprite_setTexture(data->sprite, data->texture, sfTrue);
     self->data = data;
 }
@@ -37,15 +37,20 @@ static void init(entity_t *self, engine_t *engine)
 static void update(entity_t *self, engine_t *engine)
 {
     DATA(npc);
+    PR(npc);
     entity_player_data_t *data_player =
     snr_scene_get_entity(engine->sm->scene, "Player")->data;
     sfFloatRect rect_player =
     {data_player->pos.x, data_player->pos.y + 20, 20, 20};
 
     if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
-    sfKeyboard_isKeyPressed(sfKeyE) && !data->create) {
+    sfKeyboard_isKeyPressed(sfKeyE) && !data->create &&
+    props->npc_type == DEALER) {
         open_menu_deal(engine);
-    }
+    } else if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
+    sfKeyboard_isKeyPressed(sfKeyE) && !data->create)
+        snr_scene_add_entity(engine->sm->scene, engine, 
+        create_menu_talk(default_talk, props->name), my_strdup("Talk"));
 }
 
 static void draw(entity_t *self, engine_t *engine)
@@ -55,7 +60,7 @@ static void draw(entity_t *self, engine_t *engine)
     sfRenderWindow_drawSprite(engine->win, data->sprite, NULL);
 }
 
-entity_t *create_npc(npc_e npc_type, sfVector2f *pos, char *name)
+entity_t *create_npc(npc_e npc_type, sfVector2f pos, char *name)
 {
     IPR(npc);
     entity_t *ent = snr_entity_create();

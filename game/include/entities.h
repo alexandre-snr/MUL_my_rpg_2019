@@ -34,4 +34,4 @@ entity_t *create_reset_view(void);
 entity_t *create_autosave(void);
 void init_talk(entity_t *self, engine_t *engine, int total);
 entity_t *create_menu_talk(char **(*handler)(engine_t *), char *name);
-entity_t *create_npc(npc_e npc_type, sfVector2f *pos, char *name);
+entity_t *create_npc(npc_e npc_type, sfVector2f pos, char *name);

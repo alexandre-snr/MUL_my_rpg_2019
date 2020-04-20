@@ -39,8 +39,10 @@ static void draw(entity_t *self, engine_t *engine)
     DATA(menu_talk);
 
     sfRenderWindow_drawSprite(engine->win, data->sprite, NULL);
-    sfRenderWindow_drawText(engine->win, data->text[data->page], NULL);
-    sfRenderWindow_drawText(engine->win, data->text[data->page + 1], NULL);
+    for (int i = data->page; i < data->page + 3; i++) {
+        if (i < data->total)
+            sfRenderWindow_drawText(engine->win, data->text[i], NULL);
+    }
 }
 
 static void update(entity_t *self, engine_t *engine)
@@ -50,7 +52,7 @@ static void update(entity_t *self, engine_t *engine)
     snr_scene_get_entity(engine->sm->scene, "Npc")->data;
 
     data->dt_time += engine->dt->val;
-    if (data->page >= data->total / 2 - 1)
+    if (data->page >= data->total / 3)
         data->is_finish = 1;
     if (sfKeyboard_isKeyPressed(sfKeyEscape) && data->is_finish) {
         snr_scene_remove_entity(engine->sm->scene, self->id);
@@ -59,7 +61,7 @@ static void update(entity_t *self, engine_t *engine)
     }
     if (sfKeyboard_isKeyPressed(sfKeyEnter) && data->dt_time >= 0.5f &&
     !data->is_finish) {
-        data->page += 2;
+        data->page += 3;
         data->dt_time = 0;
     }
 }
