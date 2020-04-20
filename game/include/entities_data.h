@@ -115,6 +115,7 @@ typedef struct
 {
     char *text;
     void (*callback)(engine_t *);
+    int data;
 } menu_entry_t;
 
 typedef struct

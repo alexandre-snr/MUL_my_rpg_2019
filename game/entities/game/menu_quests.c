@@ -20,6 +20,10 @@ static void open_quest_details(engine_t *engine)
 {
     entity_menu_data_t *m_data =
     snr_scene_get_entity(engine->sm->scene, "Menu")->data;
+    entity_player_data_t *p_data =
+    snr_scene_get_entity(engine->sm->scene, "Player")->data;
+
+    p_data->selected_quest = m_data->entries[m_data->entry_selected]->data;
 }
 
 static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)
@@ -28,11 +32,12 @@ static void add_item(engine_t *eng, menu_entry_t **entries, int *i, item_e item)
     int *item_count = get_inventory_item(eng, item);
 
     if (*item_count == 0 || get_inventory_item_type(item) != QUEST ||
-   is_quest_over(eng, item))
+    is_quest_over(eng, item))
         return;
     entry = malloc(sizeof(menu_entry_t));
     entry->text = get_inventory_item_name(item);
     entry->callback = open_quest_details;
+    entry->data = item;
     entries[*i] = entry;
     (*i)++;
 }
