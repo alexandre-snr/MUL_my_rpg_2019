@@ -80,7 +80,7 @@ static void destroy(entity_t *self, engine_t *engine)
     sfFont_destroy(data->font);
 }
 
-entity_t *create_menu_talk(char **(*handler)(engine_t *), char *name)
+entity_t *create_menu_talk(char **(*handler)(engine_t *))
 {
     entity_t *ent = snr_entity_create();
     IPR(menu_talk);

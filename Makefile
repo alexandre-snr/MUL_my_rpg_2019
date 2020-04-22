@@ -68,6 +68,10 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/menu_talk.c							\
 			game/entities/game/menu_talk_init.c						\
 			game/entities/game/talk.c								\
+			game/entities/game/answer.c								\
+			game/entities/game/menu_answer_update.c					\
+			game/entities/game/answer_callbacks.c					\
+			game/entities/game/menu_entries_answer.c				\
 			game/entities/game/reset_view.c							\
 			game/entities/game/get_current_slot.c					\
 			game/entities/game/save.c								\

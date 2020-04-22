@@ -16,3 +16,5 @@ typedef enum {
 } npc_e;
 
 char **default_talk(engine_t *engine);
+void on_yes(engine_t *engine);
+void on_no(engine_t *engine);

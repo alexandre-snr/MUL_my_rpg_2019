@@ -48,8 +48,10 @@ static void update(entity_t *self, engine_t *engine)
     sfKeyboard_isKeyPressed(sfKeyE) && props->npc_type == DEALER) {
         open_menu_deal(engine);
     } else if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
-    sfKeyboard_isKeyPressed(sfKeyE))
+    sfKeyboard_isKeyPressed(sfKeyE)) {
         open_talk(engine);
+        open_menu_ans(engine);
+    }
 }
 
 static void draw(entity_t *self, engine_t *engine)
@@ -59,12 +61,11 @@ static void draw(entity_t *self, engine_t *engine)
     sfRenderWindow_drawSprite(engine->win, data->sprite, NULL);
 }
 
-entity_t *create_npc(npc_e npc_type, sfVector2f pos, char *name)
+entity_t *create_npc(npc_e npc_type, sfVector2f pos)
 {
     IPR(npc);
     entity_t *ent = snr_entity_create();
 
-    pr->name = name;
     pr->npc_type = npc_type;
     pr->pos = pos;
     ent->props = pr;
