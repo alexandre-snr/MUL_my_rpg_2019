@@ -36,9 +36,10 @@ entity_t *create_autosave(void);
 entity_t *create_rain(void);
 void init_talk(entity_t *self, engine_t *engine, int total);
 entity_t *create_menu_talk(char **(*handler)(engine_t *));
-entity_t *create_npc(npc_e npc_type, sfVector2f pos);
+entity_t *create_npc(npc_e npc_type, sfVector2f pos,
+char **(handler)(engine_t *));
 void close_talk(engine_t *engine);
-void open_talk(engine_t *engine);
+void open_talk(engine_t *engine, char **(*handler)(engine_t *));
 entity_t *create_current_quest(void);
 void menu_answer_update(entity_t *self, engine_t *engine);
 void close_menu_answer(engine_t *engine);

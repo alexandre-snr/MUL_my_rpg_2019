@@ -159,6 +159,7 @@ typedef struct
     int is_open;
     double dt_time;
     char **conv;
+    char **(*handler)(engine_t *);
     sfTexture *texture;
     sfSprite *sprite;
     sfFont *font;
@@ -170,6 +171,7 @@ typedef struct
 {
     npc_e npc_type;
     sfVector2f pos;
+    char **(*handler)(engine_t *);
 } entity_npc_props_t;
 
 typedef struct
@@ -177,6 +179,7 @@ typedef struct
     sfFloatRect rect;
     sfSprite *sprite;
     sfTexture *texture;
+    char **(*handler)(engine_t *);
 } entity_npc_data_t;
 
 typedef struct

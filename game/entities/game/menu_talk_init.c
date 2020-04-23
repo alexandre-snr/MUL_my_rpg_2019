@@ -12,10 +12,12 @@
 static void init_talk2(entity_t *self, engine_t *engine, int total)
 {
     DATA(menu_talk);
+    PR(menu_talk);
 
     for (int i = 0; i < total; i++) {
         sfText_setCharacterSize(data->text[i], 20);
     }
+    data->handler = props->handler;
 }
 
 void init_talk(entity_t *self, engine_t *engine, int total)

@@ -46,7 +46,8 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
     add_entity(scn);
     snr_scene_add_entity(scn, NULL,
     create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
-    snr_scene_add_entity(scn, NULL, create_npc(1, npc_pos), "Nom du Mec");
+    snr_scene_add_entity(scn, NULL, create_npc(1, npc_pos, default_talk),
+    "Nom du Mec");
     snr_scene_add_entity(scn, engine, create_menu_talk(default_talk), "Talk");
     snr_scene_add_entity(scn, NULL, create_reset_view(), "Rs");
     snr_scene_add_entity(scn, NULL, create_rain(), "Rain");

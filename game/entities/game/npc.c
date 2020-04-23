@@ -32,6 +32,7 @@ static void init(entity_t *self, engine_t *engine)
     data->texture = sfTexture_createFromFile(path[props->npc_type], NULL);
     sfSprite_setPosition(data->sprite, props->pos);
     sfSprite_setTexture(data->sprite, data->texture, sfTrue);
+    data->handler = props->handler;
     self->data = data;
 }
 
@@ -49,7 +50,7 @@ static void update(entity_t *self, engine_t *engine)
         open_menu_deal(engine);
     } else if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
     sfKeyboard_isKeyPressed(sfKeyE)) {
-        open_talk(engine);
+        open_talk(engine, default_talk);
         open_menu_ans(engine);
     }
 }
@@ -61,7 +62,8 @@ static void draw(entity_t *self, engine_t *engine)
     sfRenderWindow_drawSprite(engine->win, data->sprite, NULL);
 }
 
-entity_t *create_npc(npc_e npc_type, sfVector2f pos)
+entity_t *create_npc(npc_e npc_type, sfVector2f pos,
+char **(*handler)(engine_t *))
 {
     IPR(npc);
     entity_t *ent = snr_entity_create();
