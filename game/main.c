@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include "engine.h"
 #include "scene_manager.h"
+#include "map_change.h"
 #include "scenes.h"
 #include "ini.h"
 #include "string_convert.h"
