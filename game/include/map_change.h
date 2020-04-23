@@ -9,6 +9,7 @@
 
 #include "engine.h"
 #include "inventory.h"
+#include "entities_data.h"
 #include <SFML/System/Vector2.h>
 
 typedef enum
@@ -22,6 +23,7 @@ typedef struct
     sfVector2f player_pos;
     maps_e map;
     inventory_t inv;
+    entity_enemy_data_t *enemy_data;
 } map_change_t;
 
 void load_map(engine_t *engine, map_change_t *map_change);

@@ -70,6 +70,12 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/save.c								\
 			game/entities/game/autosave.c							\
 			game/entities/game/npc.c								\
+			game/entities/game/barre_stat.c							\
+			game/entities/game/enemy_stat.c							\
+			game/entities/game/fight_info.c							\
+			game/entities/game/fight_player.c						\
+			game/entities/game/fight_enemy.c						\
+			game/entities/game/fightbg.c							\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\
@@ -84,6 +90,12 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/spawn_map/spawn_map.c						\
 			game/scenes/player_design/player_design.c				\
 			game/scenes/player_design/player_design_callback.c		\
+			game/scenes/fight/fight_map.c							\
+			game/scenes/fight/fight_callback.c						\
+			game/scenes/fight/create_labels.c						\
+			game/scenes/fight/get_fight_info.c						\
+			game/scenes/fight/update_labels.c						\
+			game/scenes/fight/attack.c						\
 			game/npc_talk/default_talk.c							\
 			game/shop/buy.c
 

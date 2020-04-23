@@ -177,3 +177,39 @@ typedef struct
     sfSprite *sprite;
     sfTexture *texture;
 } entity_npc_data_t;
+
+typedef struct
+{
+    int turn;
+} entity_fight_data_t;
+
+typedef struct
+{
+    sfSprite *spe_mana;
+    sfTexture *txe;
+    sfSprite *spe_life;
+    sfTexture *tx_mana;
+    sfSprite *sp_mana;
+    sfTexture *tx_life;
+    sfSprite *sp_life;
+    sfIntRect rect_life;
+    sfIntRect rect_mana;
+} entity_info_data_t;
+
+typedef struct
+{
+    sfTexture *texture;
+    sfSprite *sprite;
+    sfIntRect rect;
+    sfVector2f pos;
+    int sword;
+    int magic;
+    int health;
+    int mana;
+    char const *path;
+} entity_enemy_data_t;
+
+typedef struct
+{
+    char const *path;
+} entity_enemy_props_t;

@@ -22,7 +22,7 @@ typedef struct
     sfText *text;
     sfFloatRect rect;
     unsigned int size;
-    char const *string;
+    char *string;
     int should_display;
     snr_label_align_e v_align;
     snr_label_align_e h_align;

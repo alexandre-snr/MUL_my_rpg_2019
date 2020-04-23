@@ -54,3 +54,19 @@ scene_t *create_scene_playerdesign(engine_t *engine);
 void on_start_click(engine_t *engine);
 void on_next_click(engine_t *engine);
 void on_previous_click(engine_t *engine);
+
+//fight
+scene_t *create_fight_map(engine_t *engine, map_change_t *map_change);
+void on_sword_click(engine_t *engine);
+void on_magic_click(engine_t *engine);
+void on_inventory_click(engine_t *engine);
+void on_escape_click(engine_t *engine);
+void create_mana_player(engine_t *engine, scene_t *scn);
+void create_health_player(engine_t *engine, scene_t *scn);
+void update_health_player(engine_t *engine);
+void update_mana_player(engine_t *engine);
+void update_health_enemy(engine_t *engine);
+void update_mana_enemy(engine_t *engine);
+void attack_player(engine_t *engine);
+void attack_sword_enemy(engine_t *engine);
+void attack_magic_enemy(engine_t *engine);
