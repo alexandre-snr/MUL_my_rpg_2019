@@ -11,8 +11,8 @@
 
 void load_map(engine_t *engine, map_change_t *map_change)
 {
-    maps_e triggers[] = {SPAWN_MAP, NONE_MAP};
-    scene_t *(*ctors[])(engine_t *, map_change_t *) = {create_fight_map};
+    maps_e triggers[] = {SPAWN_MAP, FIGHT_MAP, NONE_MAP};
+    scene_t *(*ctors[])(engine_t *, map_change_t *) = {create_spawn_map, create_fight_map};
 
     for (int i = 0; triggers[i] != NONE_MAP; i++)
         if (triggers[i] == map_change->map) {

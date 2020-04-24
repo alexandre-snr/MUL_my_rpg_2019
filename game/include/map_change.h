@@ -14,6 +14,7 @@
 typedef enum
 {
     SPAWN_MAP,
+    FIGHT_MAP,
     NONE_MAP
 } maps_e;
 

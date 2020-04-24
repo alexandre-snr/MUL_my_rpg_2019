@@ -28,6 +28,7 @@ static void add_entity(scene_t *scn)
     create_background("game/assets/sprites/maps/spawn_map.png"), "Bg");
     snr_scene_add_entity(scn, NULL,
     create_player(player_path), "Player");
+    snr_scene_add_entity(scn, NULL, create_enemy(player_path), "Enemy");
     snr_scene_add_entity(scn, NULL,
     create_obstacle("game/assets/sprites/obstacles/trunk.png", &pos, &coll),
     "Obstacle Test");

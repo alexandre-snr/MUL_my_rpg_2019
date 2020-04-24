@@ -53,6 +53,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/obstacle.c							\
 			game/entities/game/player_movement.c					\
 			game/entities/game/player.c								\
+			game/entities/game/enemy.c								\
 			game/entities/game/warp.c								\
 			game/entities/game/rain.c								\
 			game/entities/game/menu_shop.c							\

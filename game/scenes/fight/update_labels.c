@@ -11,6 +11,7 @@
 #include "scenes.h"
 #include "entities.h"
 #include "string_utils.h"
+#include "string_convert.h"
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 

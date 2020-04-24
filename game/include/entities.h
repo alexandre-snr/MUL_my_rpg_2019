@@ -42,3 +42,4 @@ entity_t *create_fight_manager(void);
 entity_t *create_barre_stats(void);
 entity_t *create_fight_enemy(const char *path);
 entity_t *create_enemy_stats(void);
+entity_t *create_enemy(const char *path);

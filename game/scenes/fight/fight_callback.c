@@ -9,6 +9,7 @@
 #include "scenes.h"
 #include "inventory.h"
 #include "entities_data.h"
+#include "entities.h"
 
 void on_sword_click(engine_t *engine)
 {
