@@ -211,5 +211,9 @@ typedef struct
 
 typedef struct
 {
+    int sword;
+    int magic;
+    int health;
+    int mana;
     char const *path;
 } entity_enemy_props_t;

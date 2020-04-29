@@ -31,10 +31,10 @@ static void init(entity_t *self, engine_t *engine)
     data->pos = pos;
     data->sprite = sfSprite_create();
     data->rect = snr_create_intrect(0, 60, 19, 30);
-    data->sword = 15;
-    data->magic = 20;
-    data->health = 100;
-    data->mana = 100;
+    data->sword = map_change->enemy.sword;
+    data->magic = map_change->enemy.magic;
+    data->health = map_change->enemy.health;
+    data->mana = map_change->enemy.mana;
     sfSprite_setTexture(data->sprite, data->texture, sfFalse);
     sfSprite_setTextureRect(data->sprite, data->rect);
     sfSprite_setPosition(data->sprite, pos);

@@ -20,9 +20,20 @@ typedef enum
 
 typedef struct
 {
+    int sword;
+    int magic;
+    int health;
+    int mana;
+    char *enemy_path;
+} enemy_info_t;
+
+typedef struct
+{
     sfVector2f player_pos;
     maps_e map;
     inventory_t inv;
+    char *enemy_path;
+    enemy_info_t enemy;
 } map_change_t;
 
 void load_map(engine_t *engine, map_change_t *map_change);

@@ -77,13 +77,13 @@ scene_t *create_fight_map(engine_t *engine, map_change_t *map_change)
 {
     scene_t *scn = snr_scene_create("Fight Map");
 
+    scn->props = map_change;
+    scn->should_free_props = 1;
     add_entity(scn);
     create_all_button(engine, scn);
     create_mana_player(engine, scn);
     create_health_player(engine, scn);
     create_mana_enemy(engine, scn);
     create_health_enemy(engine, scn);
-    scn->props = map_change;
-    scn->should_free_props = 1;
     return (scn);
 }

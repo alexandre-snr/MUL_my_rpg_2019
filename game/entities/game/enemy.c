@@ -23,13 +23,16 @@ static void init(entity_t *self, engine_t *engine)
 {
     IDATA(enemy);
     PR(enemy);
-    map_change_t *map_change = engine->sm->scene->props;
     sfVector2f pos = {600, 850};
 
     data->texture = sfTexture_createFromFile(props->path, NULL);
     data->pos = pos;
     data->sprite = sfSprite_create();
     data->rect = snr_create_intrect(0, 60, 19, 30);
+    data->mana = props->mana;
+    data->health = props->health;
+    data->sword = props->sword;
+    data->magic = props->magic;
     sfSprite_setTexture(data->sprite, data->texture, sfFalse);
     sfSprite_setTextureRect(data->sprite, data->rect);
     sfSprite_setPosition(data->sprite, pos);
@@ -38,13 +41,19 @@ static void init(entity_t *self, engine_t *engine)
 
 static void update(entity_t *self, engine_t *engine)
 {
-    map_change_t *map_change = engine->sm->scene->props;
+    map_change_t *map_change;
     entity_player_data_t *p_data = snr_scene_get_entity(engine->sm->scene,
     "Player")->data;
     DATA(enemy);
 
     if (data->pos.y <= p_data->pos.y && p_data->pos.y >= data->pos.y + 10) {
+        map_change = malloc(sizeof(map_change_t));
+        map_change->inv = p_data->inv;
         map_change->map = FIGHT_MAP;
+        map_change->enemy.mana = data->mana;
+        map_change->enemy.health = data->health;
+        map_change->enemy.sword = data->sword;
+        map_change->enemy.magic = data->magic;
         load_map(engine, map_change);
     }
 }
@@ -69,6 +78,10 @@ entity_t *create_enemy(const char *path)
     entity_t *ent = snr_entity_create();
     entity_enemy_props_t *pr = malloc(sizeof(entity_enemy_props_t));
 
+    pr->mana = 100;
+    pr->health = 100;
+    pr->sword = 10;
+    pr->magic = 9;
     pr->path = path;
     ent->depth = 5000;
     ent->props = pr;
