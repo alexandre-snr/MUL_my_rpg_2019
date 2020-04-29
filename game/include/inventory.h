@@ -24,6 +24,7 @@ typedef struct
     int ws_defense;
     int ws_magic_defense;
     int health_potions;
+    int quest_hello;
 } inventory_t;
 
 typedef enum
@@ -41,13 +42,21 @@ typedef enum
     WSTAT_DEFENSE,
     WSTAT_MAGIC_DEFENSE,
     HEALTH_POTION,
+    QUEST_HELLO,
     MAX
 } item_e;
 
+typedef enum
+{
+    STAT,
+    OBJECT,
+    QUEST
+} item_type_e;
+
 int *extract_from_inventory(inventory_t *inv, item_e item);
 int *get_inventory_item(engine_t *engine, item_e item);
-int is_inventory_item_player_stat(item_e item);
-char const *get_inventory_item_name(item_e item);
+item_type_e get_inventory_item_type(item_e item);
+char *get_inventory_item_name(item_e item);
 void *get_inventory_item_use(item_e item);
 int get_life_info(engine_t *engine);
 int get_mana_info(engine_t *engine);

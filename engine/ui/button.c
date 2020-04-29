@@ -79,6 +79,7 @@ entity_t *snr_ui_button_create(entity_button_props_t *props)
     ent->props = props;
     ent->depth = 1000;
     ent->init = init;
+    ent->depth = 10010;
     ent->update = update;
     ent->draw = draw;
     ent->destroy = destroy;

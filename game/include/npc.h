@@ -10,9 +10,11 @@
 #include "engine.h"
 
 typedef enum {
-    VILLAGERS_MALE,
-    VILLAGERS_FEMALE,
+    VILLAGERS_MAN,
+    VILLAGERS_WOMAN,
     DEALER
 } npc_e;
 
 char **default_talk(engine_t *engine);
+void on_yes(engine_t *engine);
+void on_no(engine_t *engine);

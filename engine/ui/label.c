@@ -74,6 +74,7 @@ entity_t *snr_ui_label_create(entity_label_props_t *props)
     ent->depth = 1000;
     ent->init = init;
     ent->update = update;
+    ent->depth = 10010;
     ent->draw = draw;
     ent->destroy = destroy;
     return (ent);

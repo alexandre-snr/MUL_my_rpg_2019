@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-CFLAGS 	=	-Iengine/include -Igame/include -Wall
+CFLAGS 	=	-g -Iengine/include -Igame/include -Wall
 LDFLAGS	+=	-lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm
 
 EXEC 	=	my_rpg
@@ -43,6 +43,7 @@ SRC		=	engine/core/engine.c									\
 			game/main.c												\
 			game/map_change.c										\
 			game/inventory.c										\
+			game/quests.c											\
 			game/items/health_potion.c								\
 			game/entities/splashscreen/sound.c						\
 			game/entities/splashscreen/video.c						\
@@ -63,9 +64,16 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/menu_main.c							\
 			game/entities/game/menu_inventory.c						\
 			game/entities/game/menu_stats.c							\
+			game/entities/game/menu_quests.c						\
 			game/entities/game/menu_entries.c						\
 			game/entities/game/menu_talk.c							\
 			game/entities/game/menu_talk_init.c						\
+			game/entities/game/talk.c								\
+			game/entities/game/answer.c								\
+			game/entities/game/menu_answer_update.c					\
+			game/entities/game/answer_callbacks.c					\
+			game/entities/menu/menu_background.c					\
+			game/entities/game/menu_entries_answer.c				\
 			game/entities/game/reset_view.c							\
 			game/entities/game/get_current_slot.c					\
 			game/entities/game/save.c								\
@@ -77,6 +85,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/fight_player.c						\
 			game/entities/game/fight_enemy.c						\
 			game/entities/game/fightbg.c							\
+			game/entities/game/current_quest.c						\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\

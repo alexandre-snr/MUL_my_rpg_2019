@@ -51,7 +51,7 @@ static void create_icon_next(scene_t *scn, engine_t *engine)
 
 static void create_icon_previous(scene_t *scn, engine_t *engine)
 {
-    entity_button_props_t *props_previous = 
+    entity_button_props_t *props_previous =
     malloc(sizeof(entity_button_props_t));
     sfVector2u win_size = sfRenderWindow_getSize(engine->win);
     sfFloatRect rect_previous = {win_size.x / 2 - 365, win_size.y / 2, 70, 70};
@@ -88,6 +88,9 @@ scene_t *create_scene_playerdesign(engine_t *engine)
     sfFloatRect rect_start = snr_create_floatrect(win_size.x / 2 - 200,
     win_size.y / 2 + 200, 400, 100);
 
+    snr_scene_add_entity(scn, NULL,
+    create_menu_background("game/assets/sprites/maps/main-menu.png"),
+    "Background");
     create_title(scn, engine);
     snr_scene_add_entity(scn, engine, create_preview(0), "Preview");
     create_button(scn, "Start", on_start_click, &rect_start);

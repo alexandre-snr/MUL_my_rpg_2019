@@ -26,18 +26,19 @@ static void quit(engine_t *engine)
 void open_main_menu(engine_t *engine, int bypass_key)
 {
     menu_entry_t **entries;
-    char *texts[] = {"MENU:", "Inventaire", "Stats du joueur", "Sauvegarder",
-    "Quitter"};
-    void *callbacks[] = {NULL, open_inventory, open_stats, save, quit};
+    char *texts[] = {"MENU:", "Inventaire", "Stats du joueur", "Quetes",
+    "Sauvegarder", "Quitter"};
+    void *callbacks[] = {NULL, open_inventory, open_stats, open_quests,
+    save, quit};
 
     if (sfKeyboard_isKeyPressed(sfKeyI) || bypass_key) {
-        entries = malloc(sizeof(menu_entry_t) * 6);
-        for (int i = 0; i < 5; i++) {
+        entries = malloc(sizeof(menu_entry_t) * 7);
+        for (int i = 0; i < 6; i++) {
             entries[i] = malloc(sizeof(menu_entry_t));
             entries[i]->text = my_strdup(texts[i]);
             entries[i]->callback = callbacks[i];
         }
-        entries[5] = NULL;
+        entries[6] = NULL;
         open_menu(engine, entries);
     }
 }

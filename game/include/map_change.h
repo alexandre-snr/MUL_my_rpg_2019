@@ -33,6 +33,7 @@ typedef struct
     maps_e map;
     inventory_t inv;
     enemy_info_t enemy;
+    int selected_quest;
 } map_change_t;
 
 void load_map(engine_t *engine, map_change_t *map_change);

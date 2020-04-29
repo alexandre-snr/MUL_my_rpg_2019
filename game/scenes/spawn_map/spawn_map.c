@@ -25,7 +25,7 @@ static void add_entity(scene_t *scn)
     snr_scene_add_entity(scn, NULL, create_camera(), "Camera");
     snr_scene_add_entity(scn, NULL, create_colliders(), "Coll");
     snr_scene_add_entity(scn, NULL,
-    create_background("game/assets/sprites/maps/spawn_map.png"), "Bg");
+    create_menu_background("game/assets/sprites/maps/spawn_map.png"), "Bg");
     snr_scene_add_entity(scn, NULL,
     create_player(player_path), "Player");
     snr_scene_add_entity(scn, NULL, create_enemy(player_path), "Enemy");
@@ -34,7 +34,6 @@ static void add_entity(scene_t *scn)
     "Obstacle Test");
     snr_ini_free(ini);
 }
-
 
 scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
 {
@@ -48,10 +47,14 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
     add_entity(scn);
     snr_scene_add_entity(scn, NULL,
     create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
-    snr_scene_add_entity(scn, NULL, create_npc(0, npc_pos, "Monsieur Truc"), "Npc");
+    snr_scene_add_entity(scn, NULL, create_npc(1, npc_pos, default_talk),
+    "Nom du Mec");
+    snr_scene_add_entity(scn, engine, create_menu_talk(default_talk), "Talk");
     snr_scene_add_entity(scn, NULL, create_reset_view(), "Rs");
     snr_scene_add_entity(scn, NULL, create_rain(), "Rain");
     snr_scene_add_entity(scn, NULL, create_menu(), "Menu");
+    snr_scene_add_entity(scn, NULL, create_menu_answer(), "Answer");
     snr_scene_add_entity(scn, NULL, create_autosave(), "Autosave");
+    snr_scene_add_entity(scn, NULL, create_current_quest(), "CQ");
     return (scn);
 }

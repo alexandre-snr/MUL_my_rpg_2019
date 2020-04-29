@@ -61,6 +61,9 @@ scene_t *create_scene_resolution(engine_t *engine)
     void (*callbacks[])(engine_t *) = {on_fullscreen_click, on_1920_click,
     on_1280_click, on_options_click};
 
+    snr_scene_add_entity(scn, NULL,
+    create_menu_background("game/assets/sprites/maps/main-menu.png"),
+    "Background");
     create_title(scn, engine);
     for (int i = 0; i < buttons_count; i++) {
         button_rect.top = (buttons_height / buttons_count) * i +230;
