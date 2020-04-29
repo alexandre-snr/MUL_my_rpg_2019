@@ -32,7 +32,6 @@ typedef struct
     sfVector2f player_pos;
     maps_e map;
     inventory_t inv;
-    char *enemy_path;
     enemy_info_t enemy;
 } map_change_t;
 
