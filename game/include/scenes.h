@@ -45,6 +45,10 @@ scene_t *create_scene_loadgame(engine_t *engine);
 void on_slot1_click(engine_t *engine);
 void on_slot2_click(engine_t *engine);
 void on_slot3_click(engine_t *engine);
+void on_del1_click(engine_t *engine);
+void on_del2_click(engine_t *engine);
+void on_del3_click(engine_t *engine);
+void create_icon_del(scene_t *scn, engine_t *engine);
 
 //spawn_map
 scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change);

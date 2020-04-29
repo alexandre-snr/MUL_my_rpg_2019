@@ -76,6 +76,7 @@ entity_t *create_preview(int number)
 
     pr->number = number;
     ent->props = pr;
+    ent->depth = 500;
     ent->draw = draw;
     ent->init = init;
     ent->destroy = destroy;

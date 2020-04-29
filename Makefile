@@ -93,6 +93,8 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/spawn_map/spawn_map.c						\
 			game/scenes/player_design/player_design.c				\
 			game/scenes/player_design/player_design_callback.c		\
+			game/scenes/loadgame/icon_del.c							\
+			game/scenes/loadgame/icon_del_callbacks.c				\
 			game/npc_talk/default_talk.c							\
 			game/shop/buy.c
 

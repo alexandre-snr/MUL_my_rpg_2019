@@ -80,6 +80,7 @@ scene_t *create_scene_loadgame(engine_t *engine)
     void (*callback[])(engine_t *) = {on_slot1_click, on_slot2_click,
     on_slot3_click, on_main_menu_click};
 
+    create_icon_del(scn, engine);
     snr_scene_add_entity(scn, NULL,
     create_menu_background("game/assets/sprites/maps/main-menu.png"),
     "Background");

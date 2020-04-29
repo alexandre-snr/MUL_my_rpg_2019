@@ -54,7 +54,7 @@ entity_t *create_icon(char const *path, sfFloatRect *rect)
     props->path = path;
     props->rect = *rect;
     ent->props = props;
-    ent->depth = 10010;
+    ent->depth = 20000;
     ent->init = init;
     ent->draw = draw;
     ent->destroy = destroy;
