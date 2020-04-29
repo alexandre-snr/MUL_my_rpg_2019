@@ -103,6 +103,9 @@ scene_t *create_scene_volume(engine_t *engine)
     sfFloatRect rect = {(win_size.x - 175) / 2, win_size.y - 200, 175, 75};
 
     snr_scene_add_entity(scn, NULL,
+    create_menu_background("game/assets/sprites/maps/main-menu.png"),
+    "Background");
+    snr_scene_add_entity(scn, NULL,
     create_title(80, win_size.x, 50, "Volume"), "");
     snr_scene_add_entity(scn, NULL,
     create_title(40, win_size.x, 150, "Effets sonores"), "");

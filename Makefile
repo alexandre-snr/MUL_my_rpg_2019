@@ -71,6 +71,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/answer.c								\
 			game/entities/game/menu_answer_update.c					\
 			game/entities/game/answer_callbacks.c					\
+			game/entities/menu/menu_background.c					\
 			game/entities/game/menu_entries_answer.c				\
 			game/entities/game/reset_view.c							\
 			game/entities/game/get_current_slot.c					\

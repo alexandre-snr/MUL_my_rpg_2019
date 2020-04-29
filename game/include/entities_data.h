@@ -193,3 +193,15 @@ typedef struct
     sfText **texts;
     char **dialogs;
 } entity_current_quest_data_t;
+
+typedef struct
+{
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2f tex_size;
+} entity_menu_background_data_t;
+
+typedef struct
+{
+    char const *path;
+} entity_menu_background_props_t;

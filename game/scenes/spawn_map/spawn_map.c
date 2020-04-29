@@ -25,7 +25,7 @@ static void add_entity(scene_t *scn)
     snr_scene_add_entity(scn, NULL, create_camera(), "Camera");
     snr_scene_add_entity(scn, NULL, create_colliders(), "Coll");
     snr_scene_add_entity(scn, NULL,
-    create_background("game/assets/sprites/maps/spawn_map.png"), "Bg");
+    create_menu_background("game/assets/sprites/maps/spawn_map.png"), "Bg");
     snr_scene_add_entity(scn, NULL,
     create_player(player_path), "Player");
     snr_scene_add_entity(scn, NULL,

@@ -14,6 +14,7 @@
 #include "ini.h"
 #include "string_convert.h"
 #include "string_utils.h"
+#include "entities.h"
 
 static char **create_labels(void)
 {
@@ -79,6 +80,9 @@ scene_t *create_scene_loadgame(engine_t *engine)
     void (*callback[])(engine_t *) = {on_slot1_click, on_slot2_click,
     on_slot3_click, on_main_menu_click};
 
+    snr_scene_add_entity(scn, NULL,
+    create_menu_background("game/assets/sprites/maps/main-menu.png"),
+    "Background");
     create_title(scn, engine);
     for (int i = 0; i < buttons_count; i++) {
         button_rect.top = (buttons_height / buttons_count) * i + 230;
