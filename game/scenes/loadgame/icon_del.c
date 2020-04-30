@@ -33,8 +33,9 @@ void create_icon_del(scene_t *scn, engine_t *engine)
     float buttons_height = win_size.y - 270;
     int buttons_count = 4;
     float button_height = (buttons_height / buttons_count) - 20;
-    sfFloatRect icon_rect = {win_size.x / 2 + 280, 100, 25, 25};
-    sfFloatRect button_rect = {win_size.x / 2 + 280, 100, 45, 45};
+    sfFloatRect icon_rect = {win_size.x / 2 + 400, 300, 50, 50};
+    sfFloatRect button_rect = {win_size.x / 2 + 380, 320, button_height,
+    button_height};
 
     for (int i = 0; i < 3; i++) {
         snr_scene_add_entity(scn, NULL, create_icon("game/assets/ui/cross.png",

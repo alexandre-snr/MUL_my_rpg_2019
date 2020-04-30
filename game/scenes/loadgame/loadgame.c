@@ -57,13 +57,13 @@ static void create_title(scene_t *scn, engine_t *engine)
 {
     entity_label_props_t *props = snr_ui_label_props();
     sfVector2u win_size = sfRenderWindow_getSize(engine->win);
-    sfFloatRect rect = {win_size.x / 2 + 110, 50, 200, 100};
+    sfFloatRect rect = {win_size.x / 2 - 100, 50, 200, 100};
 
     props->color = sfWhite;
     props->string = "Choisir une sauvegarde";
     props->rect = rect;
     props->size = 80;
-    props->h_align = RIGHT;
+    props->h_align = CENTER;
     props->v_align = CENTER;
     snr_scene_add_entity(scn, NULL, snr_ui_label_create(props), "Label My");
 }
