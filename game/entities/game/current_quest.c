@@ -39,6 +39,7 @@ static void init(entity_t *self, engine_t *engine)
     }
     data->shown = 1;
     data->loaded_quest = -1;
+    data->last_pressed = 0;
     self->data = data;
 }
 
