@@ -13,7 +13,18 @@
 #include "string_utils.h"
 #include "string_convert.h"
 #include "save.h"
+#include "rect_helper.h"
+#include "vector_helper.h"
 #include <SFML/Graphics.h>
+
+static void create_obstacles(scene_t *scn)
+{
+    sfVector2f pos = {200, 200};
+    sfFloatRect rect_tree1 = {210, 220, 15, 20};
+
+    snr_scene_add_entity(scn, NULL, create_obstacle(
+    "game/assets/sprites/obstacles/vegetale1.png", &pos, &rect_tree1), "Tree");
+}
 
 static void add_entity(scene_t *scn)
 {
@@ -25,13 +36,14 @@ static void add_entity(scene_t *scn)
     snr_scene_add_entity(scn, NULL, create_camera(), "Camera");
     snr_scene_add_entity(scn, NULL, create_colliders(), "Coll");
     snr_scene_add_entity(scn, NULL,
-    create_menu_background("game/assets/sprites/maps/spawn_map.png"), "Bg");
+    create_background("game/assets/sprites/maps/spawnMap.png"), "Bg");
     snr_scene_add_entity(scn, NULL,
     create_player(player_path), "Player");
     snr_scene_add_entity(scn, NULL, create_enemy(player_path), "Enemy");
     snr_scene_add_entity(scn, NULL,
     create_obstacle("game/assets/sprites/obstacles/trunk.png", &pos, &coll),
     "Obstacle Test");
+    create_obstacles(scn);
     snr_ini_free(ini);
 }
 
