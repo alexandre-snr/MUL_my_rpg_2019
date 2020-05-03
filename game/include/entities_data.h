@@ -189,13 +189,13 @@ typedef struct
 
 typedef struct
 {
-    sfSprite *spe_mana;
     sfTexture *txe;
     sfSprite *spe_life;
-    sfTexture *tx_mana;
-    sfSprite *sp_mana;
+    sfSprite *spe_mana;
     sfTexture *tx_life;
+    sfTexture *tx_mana;
     sfSprite *sp_life;
+    sfSprite *sp_mana;
     sfIntRect rect_life;
     sfIntRect rect_mana;
 } entity_info_data_t;
@@ -209,8 +209,10 @@ typedef struct
     int sword;
     int magic;
     int health;
-    int mana;
+    int mdefense;
+    int defense;
     char const *path;
+    maps_e map;
 } entity_enemy_data_t;
 
 typedef struct
@@ -218,7 +220,8 @@ typedef struct
     int sword;
     int magic;
     int health;
-    int mana;
+    int mdefense;
+    int defense;
     char const *path;
 } entity_enemy_props_t;
 

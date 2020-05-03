@@ -28,13 +28,14 @@ static void init(entity_t *self, engine_t *engine)
     map_change_t *map_change = engine->sm->scene->props;
 
     data->texture = sfTexture_createFromFile(props->path, NULL);
-    data->pos = pos;
     data->sprite = sfSprite_create();
     data->rect = snr_create_intrect(0, 60, 19, 30);
     data->sword = map_change->enemy.sword;
     data->magic = map_change->enemy.magic;
     data->health = map_change->enemy.health;
-    data->mana = map_change->enemy.mana;
+    data->defense = map_change->enemy.defense;
+    data->mdefense = map_change->enemy.mdefense;
+    data->map = map_change->enemy.prev_map;
     sfSprite_setTexture(data->sprite, data->texture, sfFalse);
     sfSprite_setTextureRect(data->sprite, data->rect);
     sfSprite_setPosition(data->sprite, pos);
@@ -51,7 +52,6 @@ static void update(entity_t *enemy, engine_t *engine)
         attack_player(engine);
         data->turn = 1;
     }
-    update_mana_enemy(engine);
     update_health_enemy(engine);
 }
 

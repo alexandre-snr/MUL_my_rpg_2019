@@ -44,21 +44,6 @@ void create_health_player(engine_t *engine, scene_t *scn)
     snr_scene_add_entity(scn, NULL, snr_ui_label_create(health), "Health");
 }
 
-void create_mana_enemy(engine_t *engine, scene_t *scn)
-{
-    sfVector2u win_size = sfRenderWindow_getSize(engine->win);
-    entity_label_props_t *mana = snr_ui_label_props();
-    sfFloatRect rect = {win_size.x - (win_size.x / 6 + 121), (win_size.y / 2) + 100, 206, 18};
-
-    mana->color = sfWhite;
-    mana->size = 10;
-    mana->rect = rect;
-    mana->string = my_strdup("100");
-    mana->v_align = CENTER;
-    mana->h_align = CENTER;
-    snr_scene_add_entity(scn, NULL, snr_ui_label_create(mana), "Mana_enemy");
-}
-
 void create_health_enemy(engine_t *engine, scene_t *scn)
 {
     sfVector2u win_size = sfRenderWindow_getSize(engine->win);
