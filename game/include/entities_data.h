@@ -185,25 +185,23 @@ typedef struct
 typedef struct
 {
     int turn;
-    double wait;
-    double end;
-    sfMusic *music;
-    sfMusic *sword;
-    sfMusic *magic;
 } entity_fight_data_t;
 
 typedef struct
 {
     sfTexture *txe;
     sfSprite *spe_life;
+    sfSprite *spe_mana;
     sfTexture *tx_life;
+    sfTexture *tx_mana;
     sfSprite *sp_life;
+    sfSprite *sp_mana;
     sfIntRect rect_life;
+    sfIntRect rect_mana;
 } entity_info_data_t;
 
 typedef struct
 {
-    int id;
     sfTexture *texture;
     sfSprite *sprite;
     sfIntRect rect;

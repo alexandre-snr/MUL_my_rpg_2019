@@ -8,6 +8,7 @@
 #pragma once
 
 #include "engine.h"
+#include "fight.h"
 #include "inventory.h"
 #include <SFML/System/Vector2.h>
 
