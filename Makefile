@@ -88,6 +88,7 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/current_quest.c						\
 			game/entities/game/init_coliders.c						\
 			game/entities/game/init_colliders2.c					\
+			game/entities/game/music.c								\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\

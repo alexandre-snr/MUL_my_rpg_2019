@@ -245,3 +245,10 @@ typedef struct
 {
     char const *path;
 } entity_menu_background_props_t;
+
+typedef struct
+{
+    sfMusic *fight;
+    sfMusic *music;
+    int is_running;
+} entity_game_music_data_t;
