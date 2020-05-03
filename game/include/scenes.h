@@ -52,6 +52,10 @@ void add_little_tree(scene_t *scn, engine_t *engine, sfVector2f pos);
 void add_fence(scene_t *scn, engine_t *engine, sfVector2f pos);
 void add_crates(scene_t *scn, engine_t *engine, sfVector2f pos);
 void add_little_tree_snow(scene_t *scn, engine_t *engine, sfVector2f pos);
+void add_npc(scene_t *scn, engine_t *engine);
+
+//how to play
+scene_t *create_scene_howtoplay(engine_t *engine);
 
 //chara_design
 scene_t *create_scene_playerdesign(engine_t *engine);

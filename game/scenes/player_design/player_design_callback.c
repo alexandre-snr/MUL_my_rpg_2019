@@ -25,10 +25,11 @@ static void init(map_change_t *map_change, ini_t *ini, engine_t * engine)
     inv->health = 100;
     inv->mana = 100;
     inv->level = 1;
-    map_change->player_pos.x = 20;
-    map_change->player_pos.y = 20;
+    map_change->player_pos.x = 2028;
+    map_change->player_pos.y = 1014;
     map_change->map = SPAWN_MAP;
-    map_change->selected_quest = -1;
+    map_change->selected_quest = 13;
+    inv->quest_hello = 1;
 }
 
 void on_start_click(engine_t *engine)

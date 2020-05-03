@@ -15,7 +15,7 @@ void on_play_click(engine_t *engine)
 
 void on_how_to_click(engine_t *engine)
 {
-
+    snr_scene_manager_load(engine, create_scene_howtoplay(engine));
 }
 
 void on_options_click(engine_t *engine)

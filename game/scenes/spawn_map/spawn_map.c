@@ -84,6 +84,8 @@ static void add_entity(scene_t *scn, engine_t *engine)
     if (map_change->enemy_one == 1)
         snr_scene_add_entity(scn, NULL, create_enemy(player_path), "Enemy");
     create_obstacles(scn, engine);
+    snr_scene_add_entity(scn, NULL, create_game_music(), "Music");
+    add_npc(scn, engine);
     snr_ini_free(ini);
 }
 
@@ -92,21 +94,21 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
     scene_t *scn = snr_scene_create("Spawn Map");
     sfVector2f warp_pos = {600, 600};
     sfFloatRect warp_coll = {0, 0, 16, 1000};
-    sfVector2f npc_pos = {300, 300};
+    sfVector2f npc_pos = {2183, 963};
 
     scn->props = map_change;
     scn->should_free_props = 1;
     add_entity(scn, engine);
     snr_scene_add_entity(scn, NULL,
     create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
-    snr_scene_add_entity(scn, NULL, create_npc(1, npc_pos, default_talk),
-    "Nom du Mec");
-    snr_scene_add_entity(scn, engine, create_menu_talk(default_talk), "Talk");
+    snr_scene_add_entity(scn, NULL, create_npc(DEALER, npc_pos, default_talk),
+    "Marchand");
     snr_scene_add_entity(scn, NULL, create_reset_view(), "Rs");
     snr_scene_add_entity(scn, NULL, create_rain(), "Rain");
     snr_scene_add_entity(scn, NULL, create_menu(), "Menu");
     snr_scene_add_entity(scn, NULL, create_menu_answer(), "Answer");
     snr_scene_add_entity(scn, NULL, create_autosave(), "Autosave");
     snr_scene_add_entity(scn, NULL, create_current_quest(), "CQ");
+    snr_scene_add_entity(scn, engine, create_menu_talk(mayor_talk), "Talk");
     return (scn);
 }
