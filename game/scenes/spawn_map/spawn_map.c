@@ -23,6 +23,22 @@ static void create_obstacles2(scene_t *scn, engine_t *engine)
     add_little_tree(scn, engine, snr_create_vector2f(1444, 1632));
     add_little_tree(scn, engine, snr_create_vector2f(1321, 1519));
     add_fence(scn, engine, snr_create_vector2f(2383, 2115));
+    add_little_tree(scn, engine, snr_create_vector2f(2221, 1973));
+    add_little_tree(scn ,engine, snr_create_vector2f(2172, 2020));
+    add_little_tree(scn, engine, snr_create_vector2f(2090, 2050));
+    add_little_tree(scn, engine, snr_create_vector2f(1832, 1942));
+    add_little_tree(scn, engine, snr_create_vector2f(1896, 1957));
+    add_little_tree(scn, engine, snr_create_vector2f(1866, 2036));
+    add_little_tree(scn, engine, snr_create_vector2f(1945, 2035));
+    add_little_tree(scn, engine, snr_create_vector2f(1240, 1504));
+    add_little_tree(scn, engine, snr_create_vector2f(1205, 1463));
+    add_crates(scn, engine, snr_create_vector2f(2026, 1189));
+    add_little_tree_snow(scn, engine, snr_create_vector2f(760, 932));
+    add_crates(scn, engine, snr_create_vector2f(645, 1265));
+    add_fence(scn, engine, snr_create_vector2f(212, 1637));
+    add_little_tree(scn, engine, snr_create_vector2f(394, 1428));
+    add_little_tree(scn, engine, snr_create_vector2f(424, 1815));
+    add_little_tree(scn, engine, snr_create_vector2f(479, 1815));
 }
 
 static void create_obstacles(scene_t *scn, engine_t *engine)
@@ -46,6 +62,9 @@ static void create_obstacles(scene_t *scn, engine_t *engine)
     add_little_tree(scn, engine, snr_create_vector2f(2569, 2083));
     add_little_tree(scn, engine, snr_create_vector2f(2737, 2051));
     add_little_tree(scn, engine, snr_create_vector2f(2378, 1961));
+    add_little_tree(scn, engine, snr_create_vector2f(2221, 1973));
+    add_little_tree(scn ,engine, snr_create_vector2f(2172, 2020));
+    add_little_tree(scn, engine, snr_create_vector2f(2090, 2050));
     create_obstacles2(scn, engine);
 }
 
