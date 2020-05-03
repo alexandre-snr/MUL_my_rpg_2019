@@ -46,9 +46,11 @@ void on_escape_click(engine_t *engine)
     entity_enemy_data_t *e_data = snr_scene_get_entity(engine->sm->scene,
     "Enemy")->data;
 
+    p_data->pos.y -= 15;
     map_change->inv = p_data->inv;
     map_change->map = e_data->map;
     map_change->player_pos = p_data->pos;
     map_change->selected_quest = p_data->selected_quest;
+    map_change->enemy_one = 1;
     load_map(engine, map_change);
 }
