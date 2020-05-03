@@ -102,6 +102,7 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/loadgame/loadgame_callback.c				\
 			game/scenes/spawn_map/spawn_map.c						\
 			game/scenes/spawn_map/add_obstacles.c					\
+			game/scenes/spawn_map/add_npc.c							\
 			game/scenes/player_design/player_design.c				\
 			game/scenes/player_design/player_design_callback.c		\
 			game/scenes/fight/fight_map.c							\
@@ -111,6 +112,7 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/fight/update_labels.c						\
 			game/scenes/fight/attack.c								\
 			game/npc_talk/default_talk.c							\
+			game/npc_talk/mayor_talk.c								\
 			game/shop/buy.c
 
 OBJ		=	$(SRC:.c=.o)
