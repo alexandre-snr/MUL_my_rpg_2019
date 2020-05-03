@@ -82,6 +82,7 @@ static void add_entity(scene_t *scn, engine_t *engine)
     create_player(player_path), "Player");
     create_obstacles(scn, engine);
     snr_scene_add_entity(scn, NULL, create_game_music(), "Music");
+    add_npc(scn, engine);
     snr_ini_free(ini);
 }
 
@@ -99,12 +100,12 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
     create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
     snr_scene_add_entity(scn, NULL, create_npc(DEALER, npc_pos, default_talk),
     "Marchand");
-    snr_scene_add_entity(scn, engine, create_menu_talk(default_talk), "Talk");
     snr_scene_add_entity(scn, NULL, create_reset_view(), "Rs");
     snr_scene_add_entity(scn, NULL, create_rain(), "Rain");
     snr_scene_add_entity(scn, NULL, create_menu(), "Menu");
     snr_scene_add_entity(scn, NULL, create_menu_answer(), "Answer");
     snr_scene_add_entity(scn, NULL, create_autosave(), "Autosave");
     snr_scene_add_entity(scn, NULL, create_current_quest(), "CQ");
+    snr_scene_add_entity(scn, engine, create_menu_talk(mayor_talk), "Talk");
     return (scn);
 }

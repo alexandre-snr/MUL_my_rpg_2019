@@ -53,7 +53,7 @@ static void draw(entity_t *self, engine_t *engine)
         for (int j = 0; j < 10; j++)
             sfImage_setPixel(img, (int) (data->drops[i].x + j / 4) % win_size.x,
             (int) (data->drops[i].y + j) % win_size.y,
-            sfColor_fromRGBA(0, 100, 150, j * 255 / 20));
+            sfColor_fromRGBA(0, 0, 255, j * 255 / 20));
     tex = sfTexture_createFromImage(img, NULL);
     sfSprite_setTexture(spr, tex, sfTrue);
     sfRenderWindow_drawSprite(engine->win, spr, NULL);

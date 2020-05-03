@@ -50,8 +50,7 @@ static void update(entity_t *self, engine_t *engine)
         open_menu_deal(engine);
     } else if (sfFloatRect_intersects(&rect_player, &data->rect, NULL) &&
     sfKeyboard_isKeyPressed(sfKeyE)) {
-        open_talk(engine, default_talk);
-        open_menu_ans(engine);
+        open_talk(engine, data->handler);
     }
 }
 
