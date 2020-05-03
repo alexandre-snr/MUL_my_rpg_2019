@@ -12,9 +12,7 @@ void open_talk(engine_t *engine, char **(*handler)(engine_t *))
 {
     entity_menu_talk_data_t *menu_data =
     snr_scene_get_entity(engine->sm->scene, "Talk")->data;
-    entity_t *talk = snr_scene_get_entity(engine->sm->scene, "Talk");
 
-    menu_data->handler = handler;
     menu_data->page = 0;
     menu_data->is_finish = 0;
     menu_data->is_open = 1;
