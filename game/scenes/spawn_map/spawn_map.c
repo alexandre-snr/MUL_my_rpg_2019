@@ -72,6 +72,7 @@ static void add_entity(scene_t *scn, engine_t *engine)
 {
     ini_t *ini = snr_ini_load(get_current_slot());
     char *player_path = my_strdup(*snr_ini_get(ini, "skin", "path"));
+    map_change_t *map_change = scn->props;
 
     snr_scene_add_entity(scn, NULL, create_camera(), "Camera");
     snr_scene_add_entity(scn, NULL, create_colliders(), "Coll");
@@ -80,6 +81,8 @@ static void add_entity(scene_t *scn, engine_t *engine)
     create_background("game/assets/sprites/maps/Forest.png"), "Bg");
     snr_scene_add_entity(scn, NULL,
     create_player(player_path), "Player");
+    if (map_change->enemy_one == 1)
+        snr_scene_add_entity(scn, NULL, create_enemy(player_path), "Enemy");
     create_obstacles(scn, engine);
     snr_ini_free(ini);
 }

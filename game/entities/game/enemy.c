@@ -23,7 +23,7 @@ static void init(entity_t *self, engine_t *engine)
 {
     IDATA(enemy);
     PR(enemy);
-    sfVector2f pos = {600, 850};
+    sfVector2f pos = {2800, 2000};
     map_change_t *map_change = engine->sm->scene->props;
 
     data->texture = sfTexture_createFromFile(props->path, NULL);
@@ -49,7 +49,8 @@ static void update(entity_t *self, engine_t *engine)
     "Player")->data;
     DATA(enemy);
 
-    if (data->pos.y <= p_data->pos.y && p_data->pos.y >= data->pos.y + 10) {
+    if (data->pos.y <= p_data->pos.y && p_data->pos.y >= data->pos.y + 10 &&
+    data->pos.x > p_data->pos.x && data->pos.x - p_data->pos.x < 60) {
         map_change = malloc(sizeof(map_change_t));
         map_change->inv = p_data->inv;
         map_change->map = FIGHT_MAP;

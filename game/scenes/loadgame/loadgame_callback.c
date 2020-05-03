@@ -43,6 +43,7 @@ void on_slot_click(char const *path, int slot, engine_t *engine)
         map_change->player_pos.y = stoi(*snr_ini_get(ini, "position", "y"));
         map_change->map = stoi(*snr_ini_get(ini, "position", "map"));
         map_change->selected_quest = stoi(*snr_ini_get(ini, "status", "quest"));
+        map_change->enemy_one = 1;
         load_inventory(map_change);
         load_map(engine, map_change);
     }
