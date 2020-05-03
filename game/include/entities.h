@@ -57,4 +57,5 @@ entity_t *create_menu_background(char const *path);
 entity_t *create_init_colliders(void);
 void init_4(engine_t *engine);
 entity_t *create_game_music(void);
+entity_t *create_how_background(char const *path, int fake);
 

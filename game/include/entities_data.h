@@ -252,3 +252,16 @@ typedef struct
     sfMusic *music;
     int is_running;
 } entity_game_music_data_t;
+
+typedef struct
+{
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2u tex_size;
+} entity_game_background_data_t;
+
+typedef struct
+{
+    char const *path;
+    int fake;
+} entity_game_background_props_t;

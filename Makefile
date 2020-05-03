@@ -113,6 +113,8 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/fight/attack.c								\
 			game/npc_talk/default_talk.c							\
 			game/npc_talk/mayor_talk.c								\
+			game/scenes/how_to_play/how_to_play.c					\
+			game/scenes/how_to_play/background.c					\
 			game/shop/buy.c
 
 OBJ		=	$(SRC:.c=.o)
