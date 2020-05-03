@@ -23,7 +23,9 @@ typedef struct
     int sword;
     int magic;
     int health;
-    int mana;
+    int mdefense;
+    int defense;
+    maps_e prev_map;
     char *enemy_path;
 } enemy_info_t;
 

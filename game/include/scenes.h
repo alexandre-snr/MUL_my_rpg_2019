@@ -72,3 +72,4 @@ void attack_sword_enemy(engine_t *engine);
 void attack_magic_enemy(engine_t *engine);
 void create_mana_enemy(engine_t *engine, scene_t *scn);
 void create_health_enemy(engine_t *engine, scene_t *scn);
+void check_end(engine_t *engine);

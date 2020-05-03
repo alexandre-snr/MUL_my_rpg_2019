@@ -28,7 +28,8 @@ static void init(entity_t *self, engine_t *engine)
     map_change_t *map_change = engine->sm->scene->props;
 
     data->texture = sfTexture_createFromFile(props->path, NULL);
-    data->pos = pos;
+    data->pos = map_change->player_pos;
+    data->selected_quest = map_change->selected_quest;
     data->sprite = sfSprite_create();
     data->rect = snr_create_intrect(0, 30, 19, 30);
     sfSprite_setTexture(data->sprite, data->texture, sfFalse);
@@ -43,6 +44,7 @@ static void update(entity_t *self, engine_t *engine)
 {
     update_mana_player(engine);
     update_health_player(engine);
+    check_end(engine);
 }
 
 static void draw(entity_t *self, engine_t *engine)

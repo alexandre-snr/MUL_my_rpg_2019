@@ -83,7 +83,6 @@ scene_t *create_fight_map(engine_t *engine, map_change_t *map_change)
     create_all_button(engine, scn);
     create_mana_player(engine, scn);
     create_health_player(engine, scn);
-    create_mana_enemy(engine, scn);
     create_health_enemy(engine, scn);
     return (scn);
 }

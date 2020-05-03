@@ -40,5 +40,15 @@ void on_inventory_click(engine_t *engine)
 
 void on_escape_click(engine_t *engine)
 {
-    sfRenderWindow_close(engine->win);
+    map_change_t *map_change = malloc(sizeof(map_change_t));
+    entity_player_data_t *p_data = snr_scene_get_entity(engine->sm->scene,
+    "Player")->data;
+    entity_enemy_data_t *e_data = snr_scene_get_entity(engine->sm->scene,
+    "Enemy")->data;
+
+    map_change->inv = p_data->inv;
+    map_change->map = e_data->map;
+    map_change->player_pos = p_data->pos;
+    map_change->selected_quest = p_data->selected_quest;
+    load_map(engine, map_change);
 }
