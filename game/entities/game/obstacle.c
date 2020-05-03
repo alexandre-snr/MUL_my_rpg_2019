@@ -35,7 +35,7 @@ static void update(entity_t *self, engine_t *engine)
 {
     PR(obstacle);
 
-    self->depth = 5000 + props->pos.y;
+    self->depth = 5000 + props->coll.top;
 }
 
 static void draw(entity_t *self, engine_t *engine)

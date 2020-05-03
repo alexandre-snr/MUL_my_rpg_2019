@@ -48,6 +48,8 @@ void on_slot3_click(engine_t *engine);
 
 //spawn_map
 scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change);
+void add_little_tree(scene_t *scn, engine_t *engine, sfVector2f pos);
+void add_fence(scene_t *scn, engine_t *engine, sfVector2f pos);
 
 //chara_design
 scene_t *create_scene_playerdesign(engine_t *engine);

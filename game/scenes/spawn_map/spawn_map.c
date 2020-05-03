@@ -17,33 +17,51 @@
 #include "vector_helper.h"
 #include <SFML/Graphics.h>
 
-static void create_obstacles(scene_t *scn)
+static void create_obstacles2(scene_t *scn, engine_t *engine)
 {
-    sfVector2f pos = {200, 200};
-    sfFloatRect rect_tree1 = {210, 220, 15, 20};
-
-    snr_scene_add_entity(scn, NULL, create_obstacle(
-    "game/assets/sprites/obstacles/vegetale1.png", &pos, &rect_tree1), "Tree");
+    add_little_tree(scn, engine, snr_create_vector2f(2632, 2051));
+    add_little_tree(scn, engine, snr_create_vector2f(1444, 1632));
+    add_little_tree(scn, engine, snr_create_vector2f(1321, 1519));
+    add_fence(scn, engine, snr_create_vector2f(2383, 2115));
 }
 
-static void add_entity(scene_t *scn)
+static void create_obstacles(scene_t *scn, engine_t *engine)
 {
-    sfVector2f pos = {100, 100};
-    sfFloatRect coll = {100, 110, 36, 22};
+    sfVector2f pos = {2050, 610};
+    sfFloatRect rect_tree1 = {2150, 930, 100, 50};
+    sfVector2f house_pos = {1785, 1274};
+    sfFloatRect rect_house = {1783, 1361, 322, 185};
+    sfVector2f house_pos2 = {2100, 1100};
+    sfFloatRect rect_house2 = {2100, 1170, 322, 195};
+
+    snr_scene_add_entity(scn, NULL, create_obstacle(
+    "game/assets/sprites/obstacles/bigtree.png", &pos, &rect_tree1), "Tree");
+    snr_scene_add_entity(scn, NULL, create_obstacle(
+    "game/assets/sprites/obstacles/house1.png", &house_pos, &rect_house ),
+    "House");
+    snr_scene_add_entity(scn, NULL, create_obstacle(
+    "game/assets/sprites/obstacles/house1.png", &house_pos2, &rect_house2 ),
+    "House");
+    add_little_tree(scn, engine, snr_create_vector2f(2634, 1608));
+    add_little_tree(scn, engine, snr_create_vector2f(2569, 2083));
+    add_little_tree(scn, engine, snr_create_vector2f(2737, 2051));
+    add_little_tree(scn, engine, snr_create_vector2f(2378, 1961));
+    create_obstacles2(scn, engine);
+}
+
+static void add_entity(scene_t *scn, engine_t *engine)
+{
     ini_t *ini = snr_ini_load(get_current_slot());
     char *player_path = my_strdup(*snr_ini_get(ini, "skin", "path"));
 
     snr_scene_add_entity(scn, NULL, create_camera(), "Camera");
     snr_scene_add_entity(scn, NULL, create_colliders(), "Coll");
+    snr_scene_add_entity(scn, NULL, create_init_colliders(), "Init Coll");
     snr_scene_add_entity(scn, NULL,
-    create_background("game/assets/sprites/maps/spawnMap.png"), "Bg");
+    create_background("game/assets/sprites/maps/Forest.png"), "Bg");
     snr_scene_add_entity(scn, NULL,
     create_player(player_path), "Player");
-    snr_scene_add_entity(scn, NULL, create_enemy(player_path), "Enemy");
-    snr_scene_add_entity(scn, NULL,
-    create_obstacle("game/assets/sprites/obstacles/trunk.png", &pos, &coll),
-    "Obstacle Test");
-    create_obstacles(scn);
+    create_obstacles(scn, engine);
     snr_ini_free(ini);
 }
 
@@ -56,7 +74,7 @@ scene_t *create_spawn_map(engine_t *engine, map_change_t *map_change)
 
     scn->props = map_change;
     scn->should_free_props = 1;
-    add_entity(scn);
+    add_entity(scn, engine);
     snr_scene_add_entity(scn, NULL,
     create_warp(&warp_coll, SPAWN_MAP, &warp_pos), "Warp test");
     snr_scene_add_entity(scn, NULL, create_npc(1, npc_pos, default_talk),

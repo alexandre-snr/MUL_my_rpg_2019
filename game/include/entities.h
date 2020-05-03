@@ -54,3 +54,5 @@ void open_menu_answer(engine_t *engine, menu_entry_t **entries);
 entity_t *create_menu_answer(void);
 void open_menu_ans(engine_t *engine);
 entity_t *create_menu_background(char const *path);
+entity_t *create_init_colliders(void);
+void init_4(engine_t *engine);

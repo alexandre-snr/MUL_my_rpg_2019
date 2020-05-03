@@ -27,6 +27,7 @@ static void update(entity_t *self, engine_t *engine)
         map_change->map = props->map;
         map_change->player_pos = props->player_pos;
         map_change->inv = p_data->inv;
+        map_change->selected_quest = p_data->selected_quest;
         load_map(engine, map_change);
     }
 }
