@@ -39,6 +39,7 @@ static void update(entity_t *self, engine_t *engine)
     DATA(player);
 
     player_movement(self, engine);
+    printf("x:%f, y:%f\n", data->pos.x, data->pos.y);
     self->depth = 5000 + data->pos.y;
 }
 

@@ -25,11 +25,10 @@ static void init(entity_t *self, engine_t *engine)
     data->text = malloc(sizeof(sfText *) * (data->total + 1));
     data->is_finish = 0;
     data->is_open = 0;
-    data->texture = sfTexture_createFromFile("game/assets/ui/panel_beige.png",
+    data->texture = sfTexture_createFromFile("game/assets/ui/panel_diag.png",
     NULL);
     data->sprite = sfSprite_create();
     sfSprite_setTexture(data->sprite, data->texture, sfTrue);
-    sfSprite_setScale(data->sprite, snr_create_vector2f(6, 1));
     sfSprite_setPosition(data->sprite, pos);
     self->data = data;
     init_talk(self, engine, data->total);

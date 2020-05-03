@@ -86,6 +86,8 @@ SRC		=	engine/core/engine.c									\
 			game/entities/game/fight_enemy.c						\
 			game/entities/game/fightbg.c							\
 			game/entities/game/current_quest.c						\
+			game/entities/game/init_coliders.c						\
+			game/entities/game/init_colliders2.c					\
 			game/scenes/splashscreen/splashscreen.c					\
 			game/scenes/main_menu/main_menu.c						\
 			game/scenes/main_menu/main_menu_callback.c				\
@@ -98,6 +100,7 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/loadgame/loadgame.c							\
 			game/scenes/loadgame/loadgame_callback.c				\
 			game/scenes/spawn_map/spawn_map.c						\
+			game/scenes/spawn_map/add_obstacles.c					\
 			game/scenes/player_design/player_design.c				\
 			game/scenes/player_design/player_design_callback.c		\
 			game/scenes/fight/fight_map.c							\
@@ -105,7 +108,7 @@ SRC		=	engine/core/engine.c									\
 			game/scenes/fight/create_labels.c						\
 			game/scenes/fight/get_fight_info.c						\
 			game/scenes/fight/update_labels.c						\
-			game/scenes/fight/attack.c						\
+			game/scenes/fight/attack.c								\
 			game/npc_talk/default_talk.c							\
 			game/shop/buy.c
 
